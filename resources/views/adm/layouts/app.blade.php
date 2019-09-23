@@ -24,6 +24,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <script>
+        document.__API_URL = '{{ url('/') }}';
+    </script>
     <style>
         .font-weight-bold{
             font-weight: 700 !important;
@@ -75,148 +78,93 @@
                 Secciones
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Jolden" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    Jolden
+                <a href="{{ route('contenido.index',['section' => 'home']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Inicio
                 </a>
-                <div id="Jolden" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <div class="text-dark sidebar-heading">
-                            Secciones
-                        </div>
-                        {{--<h6 class="collapse-header">Custom Components:</h6>--}}
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'home','site' => 'jolden']) }}">Inicio</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'empresa','site' => 'jolden']) }}">Empresa</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'productos','site' => 'jolden']) }}">Productos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'novedades','site' => 'jolden']) }}">Novedades</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'contacto','site' => 'jolden']) }}">Contacto</a>
-                        <div class="text-dark sidebar-heading">
-                            Zona Privada
-                        </div>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'listaprecio','site' => 'jolden']) }}">Lista de Precio</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'descuento','site' => 'jolden']) }}">Descuento</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'bonificacion','site' => 'jolden']) }}">Bonificación</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'descargas','site' => 'jolden']) }}">Descargas</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'clientes','site' => 'jolden']) }}">Clientes</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'vendedor','site' => 'jolden']) }}">Vendedor</a>
-                        <a class="collapse-item" href="{{ route('ventas') }}">Ventas</a>
-
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'carrito','site' => 'jolden']) }}">Carrito</a>--}}
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'excel','site' => 'jolden']) }}">Carga General</a>
-                        <div class="text-dark sidebar-heading">
-                            Configuración
-                        </div>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'datos','site' => 'jolden']) }}">Datos</a>
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'jolden']) }}">Metadatos</a>--}}
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'terminos','site' => 'jolden']) }}">Terminos y Condiciones</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'jolden']) }}">Metadatos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'usuarios','site' => 'jolden']) }}">Usuarios</a>
-                        {{--<router-link to="/" class="collapse-item">Inicio</router-link>--}}
-                        {{--<router-link to="/productos" class="collapse-item">productos</router-link>--}}
-                    </div>
-                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Airon" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    Airon
+                <a href="{{ route('contenido.index',['section' => 'empresa']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Nosotros
                 </a>
-                <div id="Airon" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <div class="text-dark sidebar-heading">
-                            Secciones
-                        </div>
-                        {{--<h6 class="collapse-header">Custom Components:</h6>--}}
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'home','site' => 'airon']) }}">Inicio</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'empresa','site' => 'airon']) }}">Empresa</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'productos','site' => 'airon']) }}">Productos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'novedades','site' => 'airon']) }}">Novedades</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'contacto','site' => 'airon']) }}">Contacto</a>
-                        {{--<router-link to="/" class="collapse-item">Inicio</router-link>--}}
-                        {{--<router-link to="/productos" class="collapse-item">productos</router-link>--}}
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'excel','site' => 'jolden']) }}">Carga General</a>--}}
-                        <div class="text-dark sidebar-heading">
-                            Configuración
-                        </div>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'datos','site' => 'airon']) }}">Datos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'terminos','site' => 'airon']) }}">Terminos y Condiciones</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'airon']) }}">Metadatos</a>
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'jolden']) }}">Metadatos</a>--}}
-                        {{--<router-link to="/" class="collapse-item">Inicio</router-link>--}}
-                        {{--<router-link to="/productos" class="collapse-item">productos</router-link>--}}
-                    </div>
-                </div>
             </li>
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Jolden" aria-expanded="true" aria-controls="collapseTwo">--}}
+                    {{--<i class="fas fa-fw fa-cog"></i>--}}
+                    {{--Inicio--}}
+                {{--</a>--}}
+                {{--<div id="Jolden" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+                    {{--<div class="bg-white py-2 collapse-inner rounded">--}}
+
+                        {{--<h6 class="collapse-header">Custom Components:</h6>--}}
+
+                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'listaprecio','site' => 'jolden']) }}">Contenido</a>--}}
+                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'carrito','site' => 'jolden']) }}">Carrito</a>--}}
+
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Airon" aria-expanded="true" aria-controls="collapseTwo">--}}
+                    {{--<i class="fas fa-fw fa-cog"></i>--}}
+                    {{--Nosotros--}}
+                {{--</a>--}}
+                {{--<div id="Airon" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
+                    {{--<div class="bg-white py-2 collapse-inner rounded">--}}
+                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'listaprecio','site' => 'jolden']) }}">Contenido</a>--}}
+                {{--</div>--}}
+            {{--</li>--}}
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Lacatus" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    Lacatus
+                    Productos
                 </a>
                 <div id="Lacatus" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <div class="text-dark sidebar-heading">
-                            Secciones
-                        </div>
-                        {{--<h6 class="collapse-header">Custom Components:</h6>--}}
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'home','site' => 'lacatus']) }}">Inicio</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'empresa','site' => 'lacatus']) }}">Empresa</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'productos','site' => 'lacatus']) }}">Productos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'novedades','site' => 'lacatus']) }}">Novedades</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'contacto','site' => 'lacatus']) }}">Contacto</a>
-
-                        <div class="text-dark sidebar-heading">
-                            Configuración
-                        </div>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'datos','site' => 'lacatus']) }}">Datos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'terminos','site' => 'lacatus']) }}">Terminos y Condiciones</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'lacatus']) }}">Metadatos</a>
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'jolden']) }}">Metadatos</a>--}}
-
+                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'listaprecio' ]) }}">Contenido</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Ekron" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    Ekron
+                <a href="{{ route('contenido.index',['section' => 'contacto']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Contacto
                 </a>
-                <div id="Ekron" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            </li>
+            <div class="sidebar-heading">
+                Configuraciónes
+            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Datos" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    Datos
+                </a>
+                <div id="Datos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <div class="text-dark sidebar-heading">
-                            Secciones
-                        </div>
-                        {{--<h6 class="collapse-header">Custom Components:</h6>--}}
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'home','site' => 'ekron']) }}">Inicio</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'empresa','site' => 'ekron']) }}">Empresa</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'productos','site' => 'ekron']) }}">Productos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'novedades','site' => 'ekron']) }}">Novedades</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'contacto','site' => 'ekron']) }}">Contacto</a>
-
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'excel','site' => 'jolden']) }}">Carga General</a>--}}
-                        <div class="text-dark sidebar-heading">
-                            Configuración
-                        </div>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'datos','site' => 'ekron']) }}">Datos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'terminos','site' => 'ekron']) }}">Terminos y Condiciones</a>
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'terminos','site' => 'ekron']) }}">Terminos y Condiciones</a>--}}
-
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'metadatos','site' => 'ekron']) }}">Metadatos</a>
-                        {{--<router-link to="/" class="collapse-item">Inicio</router-link>--}}
-                        {{--<router-link to="/productos" class="collapse-item">productos</router-link>--}}
+                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'logos']) }}">Logos</a>
+                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'redes']) }}">Redes Sociales</a>
                     </div>
                 </div>
             </li>
-            <!-- Heading -->
-            {{--<div class="sidebar-heading">--}}
-                {{--Secciones--}}
-            {{--</div>--}}
-
-            {{--<li class="nav-item">--}}
-                {{--<a href="{{ route('contenido.index',['section' => 'empresa']) }}" class="nav-link">--}}
-                    {{--<i class="fas fa-fw fa-chart-area"></i>--}}
-                    {{--Empresa--}}
-                {{--</a>--}}
-            {{--</li>--}}
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'metadatos']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Metadatos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'terminos']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Terminos y Condiciones
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'contacto']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Usuarios
+                </a>
+            </li>
             {{--<li class="nav-item">--}}
                 {{--<a href="{{ route('contenido.index',['section' => 'productos']) }}" class="nav-link">--}}
                     {{--<i class="fas fa-fw fa-chart-area"></i>--}}

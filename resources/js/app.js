@@ -25,7 +25,31 @@ Vue.use(Vuetify)
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//ADM
+Vue.component('form-component', require('./adm/Content.vue').default);
+Vue.component('metadatos', require('./adm/Metadatos.vue').default);
+Vue.component('contacto-component', require('./adm/Contacto.vue').default);
+Vue.component('categoria', require('./adm/Categoria.vue').default);
+Vue.component('novedades', require('./adm/Novedades.vue').default);
+Vue.component('marca', require('./adm/Marca.vue').default);
+Vue.component('familia', require('./adm/Familia.vue').default);
+Vue.component('subfamilia', require('./adm/Subfamilia.vue').default);
+Vue.component('productos', require('./adm/Productos.vue').default);
+Vue.component('descargas', require('./adm/Descargas.vue').default);
+Vue.component('clientes', require('./adm/Clientes.vue').default);
+Vue.component('vendedores', require('./adm/Vendedores.vue').default);
+Vue.component('precios', require('./adm/ListaPrecios.vue').default);
+Vue.component('descuento', require('./adm/Descuento.vue').default);
+Vue.component('datos', require('./adm/Datos.vue').default);
+Vue.component('bonificacion', require('./adm/Bonus.vue').default);
+Vue.component('redes', require('./adm/Redes.vue').default);
+
+//PRIVATE
+Vue.component('carrito', require('./private/Carrito.vue').default);
+Vue.component('pedidos', require('./private/Pedidos.vue').default);
+Vue.component('count', require('./private/Count').default);
+
+Vue.component('usuario', require('./adm/Usuarios').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

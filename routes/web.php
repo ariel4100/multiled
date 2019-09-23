@@ -11,22 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('page.home');
-});
+//Route::get('/', function () {
+//    return view('page.home');
+//});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'FrontendController@home')->name('home');
+Route::get('nosotros', 'FrontendController@empresa')->name('empresa');
+Route::get('presupuesto', 'FrontendController@presupuesto')->name('presupuesto');
+Route::get('contacto', 'FrontendController@contacto')->name('contacto');
 
-
+/***MAIL***/
+Route::post('contacto','MailController@contacto')->name('contacto.mail');
+Route::post('presupuesto-mail','MailController@presupuesto')->name('presupuesto.mail');
+/****FIN MAIL****/
+Route::get('buscador','FrontendController@buscador')->name('buscador');
 Route::group([ 'prefix' => 'adm'],function (){
     // CONTENIDO
     Route::get('/', function(){
         return view('adm.content.index');
     })->name('adm.home');
     Route::group(['prefix' => 'contenido', 'as' => 'contenido'], function() {
-        Route::get('{site}/{section}/', ['uses' => 'Adm\ContentController@index', 'as' => '.index']);
+        Route::get('{section}', ['uses' => 'Adm\ContentController@index', 'as' => '.index']);
         Route::get('{section}/create', ['uses' => 'Adm\ContentController@create', 'as' => '.create']);
         Route::post('/store', ['uses' => 'Adm\ContentController@store', 'as' => '.store']);
         Route::get('{section}/{contenido}/edit', ['uses' => 'Adm\ContentController@edit', 'as' => '.edit']);

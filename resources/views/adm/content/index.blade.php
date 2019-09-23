@@ -14,8 +14,8 @@
 {{--        @dd($contenido)--}}
         @if($section == 'home' || $section == 'empresa' || $section == 'terminos')
             <form-component
-                    url-data="{{ route('content.data',['section' => $section,'site' => $site]) }}"
-                    url-action="{{ route('content.update', ['id' => $contenido->id,'site' => $site]) }}"
+                    url-data="{{ route('content.data',['section' => $section]) }}"
+                    url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
                     :idioma="{{ json_encode(collect(LaravelLocalization::getSupportedLocales())->only(['es'])) }}"
             >
             </form-component>
@@ -23,8 +23,8 @@
 
     @if($section == 'contacto')
             <contacto-component
-                url-data="{{ route('content.data',['section' => $section,'site' => $site]) }}"
-                url-action="{{ route('content.update', ['id' => $contenido->id,'site' => $site]) }}"
+                url-data="{{ route('content.data',['section' => $section]) }}"
+                url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
             ></contacto-component>
         @endif
         @if($section == 'productos')
@@ -134,54 +134,6 @@
 
         @endif
 
-        @if($section == 'descargas')
-            <descargas
-                    url-data="{{ route('download.data',['site' => $site,'section' => $section]) }}"
-                    url-add="{{ route('download.store', ['site' => $site]) }}"
-                    url-update="{{ route('download.update', ['site' => $site]) }}"
-                    url-destroy="{{ route('download.destroy', ['site' => $site]) }}"
-            ></descargas>
-        @endif
-        @if($section == 'clientes')
-            <clientes
-                    url-data="{{ route('client.data',['site' => $site]) }}"
-                    url-add="{{ route('client.store', ['site' => $site]) }}"
-                    url-update="{{ route('client.update', ['site' => $site]) }}"
-                    url-destroy="{{ route('client.destroy', ['site' => $site]) }}"
-            ></clientes>
-        @endif
-        @if($section == 'vendedor')
-                <vendedores
-                        url-data="{{ route('seller.data',['site' => $site]) }}"
-                        url-add="{{ route('seller.store', ['site' => $site]) }}"
-                        url-update="{{ route('seller.update', ['site' => $site]) }}"
-                        url-destroy="{{ route('seller.destroy', ['site' => $site]) }}"
-                ></vendedores>
-            @endif
-        @if($section == 'listaprecio')
-            <precios
-                    url-data="{{ route('price.data',['site' => $site]) }}"
-                    url-add="{{ route('price.store', ['site' => $site]) }}"
-                    url-update="{{ route('price.update', ['site' => $site]) }}"
-                    url-destroy="{{ route('price.destroy', ['site' => $site]) }}"
-            ></precios>
-        @endif
-        @if($section == 'descuento')
-            <descuento
-                    url-data="{{ route('discount.data',['site' => $site]) }}"
-                    url-add="{{ route('discount.store', ['site' => $site]) }}"
-                    url-update="{{ route('discount.update', ['site' => $site]) }}"
-                    url-destroy="{{ route('discount.destroy', ['site' => $site]) }}"
-            ></descuento>
-        @endif
-        @if($section == 'bonificacion')
-            <bonificacion
-                    url-data="{{ route('bonus.data',['site' => $site]) }}"
-                    url-add="{{ route('bonus.store', ['site' => $site]) }}"
-                    url-update="{{ route('bonus.update', ['site' => $site]) }}"
-                    url-destroy="{{ route('bonus.destroy', ['site' => $site]) }}"
-            ></bonificacion>
-        @endif
         @if($section == 'excel')
             <div class="container p-4">
 
@@ -236,17 +188,25 @@
         @endif
 
 
-        @if($section == 'datos')
+        @if($section == 'logos')
             <datos
-                    url-data="{{ route('content.data',['section' => $section,'site' => $site]) }}"
-                    url-action="{{ route('content.update', ['id' => $contenido->id,'site' => $site]) }}"
+                    url-data="{{ route('content.data',['section' => $section]) }}"
+                    url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
             ></datos>
         @endif
 
+        @if($section == 'redes')
+            <redes
+                    url-data="{{ route('content.data',['section' => $section]) }}"
+                    url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
+                    :idioma="{{ json_encode(collect(LaravelLocalization::getSupportedLocales())->only(['es'])) }}"
+            >
+            </redes>
+        @endif
         @if($section == 'metadatos')
             <metadatos
-                    url-data="{{ route('content.data',['section' => $section,'site' => $site]) }}"
-                    url-action="{{ route('content.update', ['id' => $contenido->id,'site' => $site]) }}"
+                    url-data="{{ route('content.data',['section' => $section]) }}"
+                    url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
                     :idioma="{{ json_encode(collect(LaravelLocalization::getSupportedLocales())->only(['es'])) }}"
             >
             </metadatos>

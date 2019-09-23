@@ -26,7 +26,7 @@
                         {{--</span>--}}
                         {{--</div>--}}
                         {{--<div class="col-md-6 d-flex align-items-center justify-content-end">--}}
-                        <a href="" class=" nav-link font-weight-bold" >
+                        <a href="{{ route('empresa') }}" class=" nav-link font-weight-bold" >
                             NOSOTROS
                         </a>
                         @if(!auth()->guard('client')->check())

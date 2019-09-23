@@ -8,14 +8,11 @@
     </style>
 @endpush
 @section('content')
-    {{--@include('page.partials.carousel')--}}
+    @include('page.partials.carousel')
 <div class="container my-5">
     <h5 class="text-center font-weight-bold mb-3">{{ $text['title'] ?? '' }}</h5>
      {!! $text['text'] ?? '' !!}
-
 </div>
-    <h1>VUE</h1>
-    <example-component></example-component>
     <div class="container">
         <div class="row ">
             @foreach($destacados ?? [] as $item)
@@ -34,19 +31,37 @@
             @endforeach
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            @foreach($contenido->file ?? [] as $item)
+                <div class="col-md-3 text-center mb-5">
+                    <img src="{{ asset($item['image']) }}" alt="" class="img-fluid">
+                    <h4 class="my-3 font-weight-bold">{{ $item['title'] ?? '' }}</h4>
+                </div>
+            @endforeach
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row jolden-fondo">
             <div class="container my-5">
-                <h1 class="text-center text-white font-weight-bold">{{ $text['title_2'] ?? '' }}</h1>
+                <h1 class="text-center multiled-color font-weight-bold">{{ $text['title_2'] ?? '' }}</h1>
                 <div class="row my-5">
                     @foreach($contenido->file ?? [] as $item)
-                        <div class="col-md-4 text-center mb-5">
+                        <div class="col-md-3 text-center mb-5">
                             <img src="{{ asset($item['image']) }}" alt="" class="img-fluid">
                             <h4 class="my-3 text-white font-weight-bold">{{ $item['title'] ?? '' }}</h4>
                         </div>
                     @endforeach
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="position-relative d-flex justify-content-start align-items-center">
+        <img src="{{ asset($text['banner'] ?? 'uploads/no-img.png') }}" style="z-index: -1" alt="" class="img-fluid">
+        <div class="position-absolute text-white" style="top: 50%; left: 5%;">
+            {!! $text['text_2'] ?? '' !!}
+            <a href="" class="btn bg-white text-capitalize font-weight-bold mt-4 multiled-color p-2 px-4 rounded-pill">Club Multiled</a>
         </div>
     </div>
 @endsection
