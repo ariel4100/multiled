@@ -61,21 +61,12 @@ Route::get('vendedor-data', 'Adm\SellerController@data')->name('seller.data');
 Route::post('vendedor-store', 'Adm\SellerController@store')->name('seller.store');
 Route::post('vendedor-update', 'Adm\SellerController@update')->name('seller.update');
 Route::post('vendedor-destroy', 'Adm\SellerController@destroy')->name('seller.destroy');
-//LISTADEPRECIO
-Route::get('precio-data', 'Adm\PriceController@data')->name('price.data');
-Route::post('precio-store', 'Adm\PriceController@store')->name('price.store');
-Route::post('precio-update', 'Adm\PriceController@update')->name('price.update');
-Route::post('precio-destroy', 'Adm\PriceController@destroy')->name('price.destroy');
-//DESCUENTO
-Route::get('descuento-data', 'Adm\DiscountController@data')->name('discount.data');
-Route::post('descuento-store', 'Adm\DiscountController@store')->name('discount.store');
-Route::post('descuento-update', 'Adm\DiscountController@update')->name('discount.update');
-Route::post('descuento-destroy', 'Adm\DiscountController@destroy')->name('discount.destroy');
-//BONIFICACION
-Route::get('bonificacion-data', 'Adm\BonusController@data')->name('bonus.data');
-Route::post('bonificacion-store', 'Adm\BonusController@store')->name('bonus.store');
-Route::post('bonificacion-update', 'Adm\BonusController@update')->name('bonus.update');
-Route::post('bonificacion-destroy', 'Adm\BonusController@destroy')->name('bonus.destroy');
+
+//SERVICIOS
+Route::get('servicios-data', 'Adm\ServiceController@data')->name('service.data');
+Route::post('servicios-store', 'Adm\ServiceController@store')->name('service.store');
+Route::post('servicios-update', 'Adm\ServiceController@update')->name('service.update');
+Route::post('servicios-destroy', 'Adm\ServiceController@destroy')->name('service.destroy');
 //USUARIOS
 Route::get('usuarios-data', 'Adm\UserController@data')->name('user.data');
 Route::post('usuarios-store', 'Adm\UserController@store')->name('user.store');

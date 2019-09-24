@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Family extends Model
+class Service extends Model
 {
     protected $casts = [
         'text' => 'array',
@@ -14,9 +14,4 @@ class Family extends Model
     protected $fillable = [
         'slug', 'text','order','file'
     ];
-
-    public function products()
-    {
-        return $this->hasMany('App\Product');
-    }
 }

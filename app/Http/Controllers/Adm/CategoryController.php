@@ -10,9 +10,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class CategoryController extends Controller
 {
-    public function data($site)
+    public function data()
     {
-        $categorias = Category::on(env($site))->orderBy('order')->get();
+        $categorias = Category::orderBy('order')->get();
 //        $novedades = News::on(env($site))->orderBy('order')->get();
         $idioma = collect(LaravelLocalization::getSupportedLocales())->only(['es']);
 //        dd($idioma );
@@ -23,12 +23,12 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function store(Request $request,$site)
+    public function store(Request $request)
     {
 //        return $request->all();
 //        dd($site);
         $categoria = new Category();
-        $categoria->setConnection(env($site));
+//        $categoria->setConnection(env($site));
         $categoria->text = $request->lang;
         $categoria->order = $request->lang['es']['order'];
         $categoria->slug = Str::slug($request->lang['es']['title']);
@@ -40,11 +40,11 @@ class CategoryController extends Controller
 
     }
 
-    public function update(Request $request, $site)
+    public function update(Request $request)
     {
 //        return $request->categoria;
 //        dd($site);
-        $categoria = Category::on(env($site))->find($request->categoria['id']);
+        $categoria = Category::find($request->categoria['id']);
         $categoria->text = $request->categoria['text'];
         $categoria->order = $request->categoria['text']['es']['order'];
         $categoria->slug = Str::slug($request->categoria['text']['es']['title']);
@@ -55,9 +55,9 @@ class CategoryController extends Controller
 //        dd($request->all());
     }
 
-    public function destroy(Request $request, $site)
+    public function destroy(Request $request)
     {
-        Category::on(env($site))->find($request->id)->delete();
+        Category::find($request->id)->delete();
         return response()->json('guaradado');
     }
 }

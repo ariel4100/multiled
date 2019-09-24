@@ -24,14 +24,7 @@
 @section('content')
 <div class="container my-5">
     @include('page.partials.breadcrumb')
-    <form class="row justify-content-center my-4 p-3" action="{{ route('jolden.buscador.p') }}" method="get" style="background-color: #F9F9F9">
-        <div class="col-md-8 d-flex">
-            <input type="text" name="name" class="form-control my-2" placeholder="Buscar por codigo,nombre,marca.">
-            <div class="">
-                <button type="submit" class="btn btn-md jolden-fondo rounded-pill text-white py-2 my-2" style="font-size: .80rem">Buscar</button>
-            </div>
-        </div>
-    </form>
+
     <div class="row my-5">
         @include('page.partials.botonera')
         <div class="col-md-9">

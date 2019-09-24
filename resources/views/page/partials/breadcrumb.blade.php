@@ -4,13 +4,13 @@
 
         @if(isset($familia))
             {{--{{ $f->text{'title_es'} }}--}}
-                <li class="ml-2"><a href="{{ route('jolden.familia',$familia->slug) }}" style="color: unset;" class="text-decoration-none">{!! $familia->text['es']['title'] ?? $familia->title !!} |</a></li>
+                <li class="ml-2"><a href="{{ route('familia',$familia->slug) }}" style="color: unset;" class="text-decoration-none">{!! $familia->text['es']['title'] ?? $familia->title !!} |</a></li>
         @endif
         @if(isset($subfamilia))
-                <li class="ml-2"><a href="{{ route('jolden.subfamilia',$subfamilia->slug) }}" style="color: unset;" class="text-decoration-none">{!! $subfamilia->text['es']['title'] ?? $subfamilia->title  !!} |</a></li>
+                <li class="ml-2"><a href="{{ route('subfamilia',$subfamilia->slug) }}" style="color: unset;" class="text-decoration-none">{!! $subfamilia->text['es']['title'] ?? $subfamilia->title  !!} |</a></li>
         @endif
         @if(isset($producto))
-            <li class="ml-2"><a href="{{ route('jolden.productos',$producto->slug) }}" style="color: unset;" class="text-decoration-none">{!! $producto->text['es']['title'] ?? $producto->title  !!} </a></li>
+            <li class="ml-2"><a href="{{ route('productos',$producto->slug) }}" style="color: unset;" class="text-decoration-none">{!! $producto->text['es']['title'] ?? $producto->title  !!} </a></li>
         @endif
 
         {{--<li class="ml-2">{{ isset($general) ? ucwords(strtolower($general->text{'title_'.App::getLocale()})) : null }}</li>--}}

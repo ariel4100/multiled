@@ -70,9 +70,9 @@
                     </li>
                 </ul>
                 <h5 class="text-uppercase wolf-color font-weight-bold text-dark">SEGUINOS EN </h5>
-                <a href="{{ $redes->text['es']['facebook'] ?? '' }}" class="px-2"><i style="padding: 0.5rem 0.7rem " class="fab fa-facebook-f  stylish-color text-white rounded-pill"></i></a>
-                <a href="{{ $redes->text['es']['instagram'] ?? '' }}" class="px-2"><i style=" " class="fab fa-youtube  p-2 stylish-color text-white rounded-pill"></i></a>
-                <a href="{{ $redes->text['es']['instagram'] ?? '' }}" class="pl-2"><i style=" " class="fab fa-instagram  p-2 stylish-color text-white rounded-pill"></i></a>
+                <a href="{{ $redes[0]['link'] ?? '' }}" class="px-2"><i style="padding: 0.5rem 0.7rem " class="fab fa-facebook-f  stylish-color text-white rounded-pill"></i></a>
+                <a href="{{ $redes[1]['link'] ?? '' }}" class="px-2"><i style=" " class="fab fa-twitter  p-2 stylish-color text-white rounded-pill"></i></a>
+                <a href="{{ $redes[2]['link'] ?? '' }}" class="pl-2"><i style=" " class="fab fa-instagram  p-2 stylish-color text-white rounded-pill"></i></a>
             </div>
 
             <div class="col-md-3 mb-md-0 mt-4">

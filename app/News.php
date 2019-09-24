@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Family extends Model
+class News extends Model
 {
     protected $casts = [
         'text' => 'array',
@@ -12,11 +12,11 @@ class Family extends Model
     ];
 
     protected $fillable = [
-        'slug', 'text','order','file'
+        'slug', 'text','order','file','category_id'
     ];
 
-    public function products()
-    {
-        return $this->hasMany('App\Product');
+
+    public function category(){
+        return $this->belongsTo('App\Category');
     }
 }

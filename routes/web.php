@@ -21,6 +21,21 @@ Route::get('/', 'FrontendController@home')->name('home');
 Route::get('nosotros', 'FrontendController@empresa')->name('empresa');
 Route::get('presupuesto', 'FrontendController@presupuesto')->name('presupuesto');
 Route::get('contacto', 'FrontendController@contacto')->name('contacto');
+//PRODUCTOS
+Route::group(['prefix' => 'productos'],function (){
+//    Route::get('/', 'FrontendController@familias')->name('familias');
+    Route::get('familia/{slug}', 'FrontendController@familia')->name('familia');
+    Route::get('subfamilia/{slug}', 'FrontendController@subfamilia')->name('subfamilia');
+    Route::get('producto/{slug}', 'FrontendController@productos')->name('productos');
+});
+
+//NOVEDADES
+Route::group(['prefix' => 'novedades'],function (){
+    Route::get('/', 'Jolden\FrontendController@novedades')->name('novedades');
+    Route::get('categoria/{slug}', 'Jolden\FrontendController@novedad')->name('categoria.novedad');
+    Route::get('novedad/{slug}', 'Jolden\FrontendController@novedadshow')->name('novedad.show');
+});
+
 
 /***MAIL***/
 Route::post('contacto','MailController@contacto')->name('contacto.mail');

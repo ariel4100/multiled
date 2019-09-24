@@ -12,9 +12,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class FamilyController extends Controller
 {
-    public function data($site)
+    public function data()
     {
-        $familias = Family::on(env($site))->orderBy('order')->get();
+        $familias = Family::orderBy('order')->get();
 //        $novedades = News::on(env($site))->orderBy('order')->get();
         $idioma = collect(LaravelLocalization::getSupportedLocales())->only(['es']);
 //        dd($idioma );
@@ -25,15 +25,15 @@ class FamilyController extends Controller
         ]);
     }
 
-    public function store(Request $request,$site)
+    public function store(Request $request)
     {
         $data = json_decode($request->data);
 //        dd($data);
-        $categoria = Family::on(env($site))->find($data->familia->id ?? '');
+        $categoria = Family::find($data->familia->id ?? '');
 //        return $cliente;
         if (!$categoria){
             $categoria = new Family();
-            $categoria->setConnection(env($site));
+//            $categoria->setConnection(env($site));
             if($request->images != null){
                 foreach ($request->images as $key => $value) {
                     if(is_string($value['image'])) {
@@ -91,7 +91,7 @@ class FamilyController extends Controller
     {
 //        return $request->all();
 //        dd($site);
-        $categoria = Family::on(env($site))->find($request->familia['id']);
+        $categoria = Family::find($request->familia['id']);
         $categoria->text = $request->familia['text'];
         $categoria->order = $request->familia['text']['es']['order'];
         $categoria->slug = Str::slug($request->familia['text']['es']['title']);
@@ -104,7 +104,7 @@ class FamilyController extends Controller
 
     public function destroy(Request $request, $site)
     {
-        Family::on(env($site))->find($request->id)->delete();
+        Family::find($request->id)->delete();
         return response()->json('guaradado');
     }
 }

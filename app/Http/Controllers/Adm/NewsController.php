@@ -19,10 +19,10 @@ class NewsController extends Controller
 //        return response()->json();
 //    }
 
-    public function data($site)
+    public function data()
     {
-        $novedades = News::on(env($site))->orderBy('order')->get();
-        $categorias = Category::on(env($site))->orderBy('order')->get();
+        $novedades = News::orderBy('order')->get();
+        $categorias = Category::orderBy('order')->get();
         $idioma = collect(LaravelLocalization::getSupportedLocales())->only(['es']);
 //        dd($idioma );
         return response()->json([
@@ -32,7 +32,7 @@ class NewsController extends Controller
         ]);
     }
 
-    public function store(Request $request,$site)
+    public function store(Request $request)
     {
         $data = json_decode($request->data);
 //        return $request->all();
@@ -40,7 +40,7 @@ class NewsController extends Controller
 //        return $request->all();
 
         $novedades = new News();
-        $novedades->setConnection(env($site));
+//        $novedades->setConnection(env($site));
         if($request->images != null){
             foreach ($request->images as $key => $value) {
                 if(is_string($value['image'])) {
@@ -70,12 +70,12 @@ class NewsController extends Controller
 
     }
 
-    public function update(Request $request, $site)
+    public function update(Request $request)
     {
         $data = json_decode($request->data);
 //        return dd($data->novedad->id);
 //        dd($site);
-        $novedades = News::on(env($site))->find($data->novedad->id ?? '');
+        $novedades = News::find($data->novedad->id ?? '');
 
         if($request->images != null){
             foreach ($request->images as $key => $value) {
@@ -105,9 +105,9 @@ class NewsController extends Controller
 //        dd($request->all());
     }
 
-    public function destroy(Request $request, $site)
+    public function destroy(Request $request)
     {
-        News::on(env($site))->find($request->id)->delete();
+        News::find($request->id)->delete();
         return response()->json('guaradado');
     }
 }

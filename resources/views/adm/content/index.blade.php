@@ -20,6 +20,12 @@
             >
             </form-component>
         @endif
+        @if($section == 'proyectos')
+            <proyectos
+                    url-data="{{ route('content.data',['section' => $section]) }}"
+                    url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
+            ></proyectos>
+        @endif
 
     @if($section == 'contacto')
             <contacto-component
@@ -27,70 +33,58 @@
                 url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
             ></contacto-component>
         @endif
-        @if($section == 'productos')
-
+        @if($section == 'categorias')
             <section class="card shadow">
                 <div class="card-body">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#marca" role="tab" aria-controls="marca" aria-selected="true">Marcas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#familia" role="tab" aria-controls="home" aria-selected="true">Familias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#subfamilia" role="tab" aria-controls="profile" aria-selected="false">Subfamilia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#productos" role="tab" aria-controls="profile" aria-selected="false">Productos</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="marca" role="tabpanel" aria-labelledby="home-tab">
-                            {{--<form-component--}}
-                            {{--url-data="{{ route('content.data',['section' => $section,'site' => $site]) }}"--}}
-                            {{--url-action="{{ route('content.update', ['id' => $contenido->id,'site' => $site]) }}"--}}
-                            {{--:idioma="{{ json_encode(collect(LaravelLocalization::getSupportedLocales())->only(['es'])) }}"--}}
-                            {{-->--}}
-                            {{--</form-component>--}}
-                            <marca
-                                url-data="{{ route('brand.data',['site' => $site]) }}"
-                                url-add="{{ route('brand.store', ['site' => $site]) }}"
-                                url-update="{{ route('brand.update', ['site' => $site]) }}"
-                                url-destroy="{{ route('brand.destroy', ['site' => $site]) }}"
-                            ></marca>
-                        </div>
-                        <div class="tab-pane fade " id="familia" role="tabpanel" aria-labelledby="home-tab">
-                            {{--<form-component--}}
-                                    {{--url-data="{{ route('content.data',['section' => $section,'site' => $site]) }}"--}}
-                                    {{--url-action="{{ route('content.update', ['id' => $contenido->id,'site' => $site]) }}"--}}
-                                    {{--:idioma="{{ json_encode(collect(LaravelLocalization::getSupportedLocales())->only(['es'])) }}"--}}
-                            {{-->--}}
-                            {{--</form-component>--}}
-                            <familia
-                                    url-data="{{ route('family.data',['site' => $site]) }}"
-                                    url-add="{{ route('family.store', ['site' => $site]) }}"
-                                    url-update="{{ route('family.update', ['site' => $site]) }}"
-                                    url-destroy="{{ route('family.destroy', ['site' => $site]) }}"
-                            ></familia>
-                        </div>
-                        <div class="tab-pane fade" id="subfamilia" role="tabpanel" aria-labelledby="profile-tab">
-                            <subfamilia
-                                    url-data="{{ route('subfamily.data',['site' => $site]) }}"
-                                    url-add="{{ route('subfamily.store', ['site' => $site]) }}"
-                                    url-update="{{ route('subfamily.update', ['site' => $site]) }}"
-                                    url-destroy="{{ route('subfamily.destroy', ['site' => $site]) }}"
-                            ></subfamilia>
-                        </div>
-                        <div class="tab-pane fade" id="productos" role="tabpanel" aria-labelledby="profile-tab">
-                            <productos
-                                    url-data="{{ route('product.data',['site' => $site]) }}"
-                                    url-add="{{ route('product.store', ['site' => $site]) }}"
-                                    url-update="{{ route('product.update', ['site' => $site]) }}"
-                                    url-destroy="{{ route('product.destroy', ['site' => $site]) }}"
-                            ></productos>
-                        </div>
-                    </div>
+            <familia
+                    url-data="{{ route('family.data') }}"
+                    url-add="{{ route('family.store') }}"
+                    url-update="{{ route('family.update') }}"
+                    url-destroy="{{ route('family.destroy') }}"
+            ></familia>
+                </div>
+            </section>
+        @endif
+        @if($section == 'productos')
+            <section class="card shadow">
+                <div class="card-body">
+                    <productos
+                            url-data="{{ route('product.data') }}"
+                            url-add="{{ route('product.store') }}"
+                            url-update="{{ route('product.update') }}"
+                            url-destroy="{{ route('product.destroy') }}"
+                    ></productos>
+                </div>
+            </section>
+
+        @endif
+
+        @if($section == 'servicios')
+            <section class="card shadow">
+                <div class="card-body">
+                    <servicios
+                            url-data="{{ route('service.data') }}"
+                            url-add="{{ route('service.store') }}"
+                            url-update="{{ route('service.update') }}"
+                            url-destroy="{{ route('service.destroy') }}"
+                            {{--url-action="{{ route('news.store', ['id' => $contenido->id,'site' => $site]) }}"--}}
+                    >
+                    </servicios>
+                </div>
+            </section>
+        @endif
+
+        @if($section == 'categorias_novedades')
+            <section class="card shadow">
+                <div class="card-body">
+                    <categoria
+                            url-data="{{ route('category.data') }}"
+                            url-add="{{ route('category.store') }}"
+                            url-update="{{ route('category.update') }}"
+                            url-destroy="{{ route('category.destroy') }}"
+                            {{--url-action="{{ route('news.store', ['id' => $contenido->id,'site' => $site]) }}"--}}
+                    >
+                    </categoria>
                 </div>
             </section>
 
@@ -99,40 +93,19 @@
         @if($section == 'novedades')
             <section class="card shadow">
                 <div class="card-body">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Categoria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Novedades</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <categoria
-                                    url-data="{{ route('category.data',['site' => $site]) }}"
-                                    url-add="{{ route('category.store', ['site' => $site]) }}"
-                                    url-update="{{ route('category.update', ['site' => $site]) }}"
-                                    url-destroy="{{ route('category.destroy', ['site' => $site]) }}"
-                                    {{--url-action="{{ route('news.store', ['id' => $contenido->id,'site' => $site]) }}"--}}
-                            >
-                            </categoria>
-                        </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <novedades
-                                    url-data="{{ route('news.data',['site' => $site]) }}"
-                                    url-add="{{ route('news.store', ['site' => $site]) }}"
-                                    url-update="{{ route('news.update', ['site' => $site]) }}"
-                                    url-destroy="{{ route('news.destroy', ['site' => $site]) }}"
-                                    {{--url-action="{{ route('news.store', ['id' => $contenido->id,'site' => $site]) }}"--}}
-                            >
-                            </novedades>
-                        </div>
-                    </div>
+                    <novedades
+                            url-data="{{ route('news.data') }}"
+                            url-add="{{ route('news.store') }}"
+                            url-update="{{ route('news.update') }}"
+                            url-destroy="{{ route('news.destroy') }}"
+                            {{--url-action="{{ route('news.store', ['id' => $contenido->id,'site' => $site]) }}"--}}
+                    >
+                    </novedades>
                 </div>
             </section>
-
         @endif
+
+
 
         @if($section == 'excel')
             <div class="container p-4">

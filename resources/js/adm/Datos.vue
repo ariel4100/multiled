@@ -10,15 +10,19 @@
                         <div class="card-body">
                             <a @click="addImage" class="btn btn-info btn-md">Añadir</a>
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-4" v-for="item in images">
+                                <div class="col-sm-12 col-md-6 col-lg-4" v-for="(item,index) in images">
                                     <input-file-image
                                             :model.sync="item.image"
                                             id="input-logo-header"
                                             :label-text="'Seleccione ' +item.title"
                                     ></input-file-image>
-                                    <div class="md-form">
+                                    <div class="md-form" v-if="item.title">
                                         <input type="text" class="form-control" v-model="item.title" placeholder="Titulo">
                                     </div>
+                                    <div class="md-form">
+                                        <input type="text" class="form-control" v-model="item.subtitle" placeholder="Subtitulo">
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -41,6 +45,8 @@
 <script>
 
     import draggable from 'vuedraggable'
+    import 'jodit/build/jodit.min.css'
+    import JoditVue from 'jodit-vue'
     import toastr from 'toastr';
     import InputFileImage from '../components/ImageComponent';
 
@@ -52,6 +58,7 @@
 
         },
         components: {
+            JoditVue,
             draggable,
             'input-file-image': InputFileImage
         },
@@ -94,6 +101,8 @@
                             // console.log( file.image)
                             self.formData.append('images['+key+'][image]', file.image);
                             self.formData.append('images['+key+'][title]', file.title);
+                            self.formData.append('images['+key+'][subtitle]', file.subtitle);
+                            self.formData.append('images['+key+'][text]', file.text);
                         }
                     })
                 }
@@ -108,6 +117,8 @@
                 this.images.push({
                     image:{},
                     title:'',
+                    subtitle:'',
+                    text:'',
                 })
             },
 

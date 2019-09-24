@@ -143,7 +143,7 @@
 <script>
 
     import draggable from 'vuedraggable'
-
+    import toastr from 'toastr';
     import InputFileImage from '../components/ImageComponent';
 
     export default {
@@ -190,6 +190,7 @@
                 console.log(this.content)
                 this.formData.append('data', JSON.stringify(this.content));
                 axios.post(this.urlAction,this.formData).then(res => {
+                    toastr.success('Se modifico correctamente')
                     console.log(res)
                 });
             },

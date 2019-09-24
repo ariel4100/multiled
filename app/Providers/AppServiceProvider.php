@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Content;
+use App\Family;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -32,17 +33,30 @@ class AppServiceProvider extends ServiceProvider
 //            dd($cliente_elegido);
             $datos = Content::where('section','logos')->first();
             $contacto = Content::where('section','contacto')->first();
-//            $familia_jolden = Family::orderBy('order')->get();
+            $redes = Content::where('section','redes')->first();
+            $familias = Family::orderBy('order')->get();
             $metadatos = Content::where('section','metadatos')->first();
             $info_footer = Content::where('section','terminos')->first();
 
-//            dd($info_footer);
+            $filtered_whatsapp = collect($contacto->text['phones'])->filter(function ($value, $key) {
+//                dd($value);
+                if ($value['type'] == 'wha')
+                {
+                    return $value;
+                }
+//                return $value > 2;
+            });
+//            dd($filtered_whatsapp->first());
             view()->share([
+
+                'familias' => @$familias,
                 'favicon' => @$datos->file[0]['image'],
                 'header' => @$datos->file[1]['image'],
                 'footer' => @$datos->file[2]['image'],
                 'contacto' => @$contacto->text,
                 'metadatos' => @$metadatos->file,
+                'redes' => @$redes->text['redes'],
+                'whatsapp' => @$filtered_whatsapp->first(),
             ]);
 
 //

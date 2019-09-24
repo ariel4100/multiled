@@ -26,12 +26,12 @@ class ContentController extends Controller
         $contenido = Content::firstOrCreate(['section' => $section]); // static method
 
 //        dd($contenido);
-        if ($section == 'novedades')
-        {
-            $categoria = Category::orderBy('order')->get();
-            $novedades = News::orderBy('order')->get();
-            return view('adm.content.index',compact('section','novedades','site','categoria','contenido'));
-        }
+//        if ($section == 'novedades')
+//        {
+//            $categoria = Category::orderBy('order')->get();
+//            $novedades = News::orderBy('order')->get();
+//            return view('adm.content.index',compact('section','novedades','site','categoria','contenido'));
+//        }
         return view('adm.content.index',compact('section','contenido'));
     }
 
@@ -85,18 +85,26 @@ class ContentController extends Controller
             foreach ($request->images as $key => $value) {
                 if(is_string($value['image'])) {
 //                    $gallery[$key] = $value;
-//                    return $value;
+//                    $f = intval($value['featured']);
+//                    $g = isset( $f );
+//                    return dd($f);
                     $images[$key]['image'] = $value['image'] ?? '';
                     $images[$key]['title'] = $value['title'] ?? '';
+                    $images[$key]['subtitle'] = $value['subtitle'] ?? '';
+                    $images[$key]['text'] = $value['text'] ?? '';
                     $images[$key]['keyword'] = $value['keyword'] ?? '';
                     $images[$key]['description'] = $value['description'] ?? '';
+                    $images[$key]['featured'] = intval($value['featured']) ? 1 : 0;
                 } else {
 //                    dd($value);
                     $path = $value['image']->store('uploads/images');
                     $images[$key]['image'] = $path;
                     $images[$key]['title'] = $value['title'] ?? '';
+                    $images[$key]['subtitle'] = $value['subtitle'] ?? '';
+                    $images[$key]['text'] = $value['text'] ?? '';
                     $images[$key]['keyword'] = $value['keyword'] ?? '';
                     $images[$key]['description'] = $value['description'] ?? '';
+                    $images[$key]['featured'] = intval($value['featured'])? 1 : 0;
                 }
 //                return $value['image'];
 //                $path = $value['image']->store('public/uploads/gallery');

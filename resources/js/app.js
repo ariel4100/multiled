@@ -31,18 +31,14 @@ Vue.component('metadatos', require('./adm/Metadatos.vue').default);
 Vue.component('contacto-component', require('./adm/Contacto.vue').default);
 Vue.component('categoria', require('./adm/Categoria.vue').default);
 Vue.component('novedades', require('./adm/Novedades.vue').default);
-Vue.component('marca', require('./adm/Marca.vue').default);
 Vue.component('familia', require('./adm/Familia.vue').default);
-Vue.component('subfamilia', require('./adm/Subfamilia.vue').default);
 Vue.component('productos', require('./adm/Productos.vue').default);
+Vue.component('servicios', require('./adm/Servicios.vue').default);
 Vue.component('descargas', require('./adm/Descargas.vue').default);
 Vue.component('clientes', require('./adm/Clientes.vue').default);
-Vue.component('vendedores', require('./adm/Vendedores.vue').default);
-Vue.component('precios', require('./adm/ListaPrecios.vue').default);
-Vue.component('descuento', require('./adm/Descuento.vue').default);
 Vue.component('datos', require('./adm/Datos.vue').default);
-Vue.component('bonificacion', require('./adm/Bonus.vue').default);
 Vue.component('redes', require('./adm/Redes.vue').default);
+Vue.component('proyectos', require('./adm/Proyectos.vue').default);
 
 //PRIVATE
 Vue.component('carrito', require('./private/Carrito.vue').default);
