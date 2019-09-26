@@ -50,7 +50,7 @@ class NewsController extends Controller
                 } else {
 //                    dd($value['image']);
                     $path = $value['image']->store('uploads/novedades');
-                    $images[$key]['image'] = asset($path);
+                    $images[$key]['image'] = $path;
                     $images[$key]['title'] = $value['title'];
                 }
 
@@ -86,7 +86,7 @@ class NewsController extends Controller
                 } else {
 //                    dd($value['image']);
                     $path = $value['image']->store('uploads/novedades');
-                    $images[$key]['image'] = asset($path);
+                    $images[$key]['image'] = $path;
                     $images[$key]['title'] = $value['title'];
                 }
 

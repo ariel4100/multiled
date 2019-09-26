@@ -9,11 +9,12 @@ class Product extends Model
     protected $casts = [
         'text' => 'array',
         'file' => 'array',
-        'plans' => 'array',
+        'slider' => 'array',
+        'video' => 'array',
     ];
 
     protected $fillable = [
-        'code','slug', 'text','plans','order','file','family_id','subfamily_id'
+        'code','slug', 'text','plans','order','file','family_id','subfamily_id','section','video','slider'
     ];
 
     public function family(){

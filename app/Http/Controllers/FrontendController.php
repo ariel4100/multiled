@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Content;
 use App\Family;
+use App\Product;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -11,12 +12,13 @@ class FrontendController extends Controller
     public function home()
     {
         $contenido = Content::where('section','home')->first();
+        $proyectos = Content::where('section','proyectos')->first();
 //        dd($contenido->slider);
 //        $destacados = Product::on('mysql')->where('text->es->featured',true )->get();
-//        dd($contenido);
+//        dd($proyectos);
         $slider =$contenido->slider;
         $text = $contenido->text['es'];
-        return view('page.home',compact('contenido','text','slider'));
+        return view('page.home',compact('contenido','text','slider','proyectos'));
     }
     public function empresa()
     {
@@ -25,6 +27,39 @@ class FrontendController extends Controller
 //        dd($slider);
         $text = $contenido->text['es'];
         return view('page.empresa',compact('contenido','text','slider'));
+    }
+
+
+    public function productos_senalizacion()
+    {
+        $señalizacion = Product::where('section','senalizacion')->get();
+//        $slider =$contenido->slider;
+//        dd($slider);
+//        $text = $contenido->text['es'];
+        return view('page.señalizacion.index',compact('señalizacion'));
+    }
+    public function senalizacion($slug)
+    {
+        $señalizacion = Product::where('section','senalizacion')->get();
+        $producto = Product::where('slug',$slug)->first();
+        $text = $producto->text['es'];
+        return view('page.señalizacion.show',compact('producto','señalizacion','text'));
+    }
+
+    public function productos_vial()
+    {
+        $vial = Product::where('section','vial')->get();
+//        $slider =$contenido->slider;
+//        dd($slider);
+//        $text = $contenido->text['es'];
+        return view('page.vial.index',compact('vial'));
+    }
+    public function vial($slug)
+    {
+        $vial = Product::where('section','vial')->get();
+        $producto = Product::where('slug',$slug)->first();
+        $text = $producto->text['es'];
+        return view('page.vial.show',compact('producto','vial','text'));
     }
 
 

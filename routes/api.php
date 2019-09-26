@@ -42,7 +42,7 @@ Route::post('subfamilias-store', 'Adm\SubfamilyController@store')->name('subfami
 Route::post('subfamilias-update', 'Adm\SubfamilyController@update')->name('subfamily.update');
 Route::post('subfamilias-destroy', 'Adm\SubfamilyController@destroy')->name('subfamily.destroy');
 //PRODUCTOS
-Route::get('productos-data', 'Adm\ProductController@data')->name('product.data');
+Route::get('productos-data/{section}', 'Adm\ProductController@data')->name('product.data');
 Route::post('productos-store', 'Adm\ProductController@store')->name('product.store');
 Route::post('productos-update', 'Adm\ProductController@update')->name('product.update');
 Route::post('productos-destroy', 'Adm\ProductController@destroy')->name('product.destroy');

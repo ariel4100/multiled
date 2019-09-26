@@ -59,6 +59,35 @@
 
         @endif
 
+        @if($section == 'senalizacion')
+            <section class="card shadow">
+                <div class="card-body">
+                    <senalizacion
+                            url-data="{{ route('product.data',['section'=>$section]) }}"
+                            url-add="{{ route('product.store') }}"
+                            url-update="{{ route('product.update') }}"
+                            url-destroy="{{ route('product.destroy') }}"
+                    ></senalizacion>
+                </div>
+            </section>
+
+        @endif
+
+        @if($section == 'vial')
+            <section class="card shadow">
+                <div class="card-body">
+                    <vial
+                            url-data="{{ route('product.data',['section'=>$section]) }}"
+                            url-add="{{ route('product.store') }}"
+                            url-update="{{ route('product.update') }}"
+                            url-destroy="{{ route('product.destroy') }}"
+                    ></vial>
+                </div>
+            </section>
+
+        @endif
+
+
         @if($section == 'servicios')
             <section class="card shadow">
                 <div class="card-body">

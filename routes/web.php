@@ -21,6 +21,23 @@ Route::get('/', 'FrontendController@home')->name('home');
 Route::get('nosotros', 'FrontendController@empresa')->name('empresa');
 Route::get('presupuesto', 'FrontendController@presupuesto')->name('presupuesto');
 Route::get('contacto', 'FrontendController@contacto')->name('contacto');
+
+//VIAL
+Route::group(['prefix' => 'vial'],function (){
+//    Route::get('/', 'FrontendController@familias')->name('familias');
+    Route::get('/', 'FrontendController@productos_vial')->name('p.vial');
+    Route::get('/{slug}', 'FrontendController@vial')->name('p.vial.show');
+//    Route::get('producto/{slug}', 'FrontendController@productos')->name('productos');
+});
+
+//SEÑALIZACION
+Route::group(['prefix' => 'señalización'],function (){
+//    Route::get('/', 'FrontendController@familias')->name('familias');
+    Route::get('/', 'FrontendController@productos_senalizacion')->name('p.senalizacion');
+    Route::get('/{slug}', 'FrontendController@senalizacion')->name('p.senalizacion.show');
+//    Route::get('producto/{slug}', 'FrontendController@productos')->name('productos');
+});
+
 //PRODUCTOS
 Route::group(['prefix' => 'productos'],function (){
 //    Route::get('/', 'FrontendController@familias')->name('familias');

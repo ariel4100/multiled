@@ -18,10 +18,12 @@ class CreateProductsTable extends Migration
             $table->string('code')->nullable();
             $table->json('text')->nullable();
             $table->json('file')->nullable();
-            $table->json('plans')->nullable();
+            $table->json('slider')->nullable();
+            $table->json('video')->nullable();
             $table->double('price')->nullable();
             $table->boolean('featured')->nullable();
             $table->string('order')->nullable();
+            $table->string('section')->nullable();
             $table->string('slug')->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
             $table->unsignedBigInteger('family_id')->nullable();

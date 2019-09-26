@@ -111,28 +111,36 @@
                     {{--</div>--}}
                 {{--</div>--}}
             {{--</li>--}}
-            {{--<li class="nav-item">--}}
-                {{--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Airon" aria-expanded="true" aria-controls="collapseTwo">--}}
-                    {{--<i class="fas fa-fw fa-cog"></i>--}}
-                    {{--Nosotros--}}
-                {{--</a>--}}
-                {{--<div id="Airon" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
-                    {{--<div class="bg-white py-2 collapse-inner rounded">--}}
-                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'listaprecio','site' => 'jolden']) }}">Contenido</a>--}}
-                {{--</div>--}}
-            {{--</li>--}}
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'senalizacion']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Señalización
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Productos" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    Productos
+                    Iluminación
                 </a>
                 <div id="Productos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('contenido.index',['section' => 'categorias' ]) }}">Categorias</a>
                         <a class="collapse-item" href="{{ route('contenido.index',['section' => 'productos' ]) }}">Productos</a>
-                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'servicios' ]) }}">Caracteristicas</a>
+                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'servicios' ]) }}">Caracteristicas</a>--}}
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'publicidad']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Publicidad
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'vial']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Vial
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Novedades" aria-expanded="true" aria-controls="collapseTwo">

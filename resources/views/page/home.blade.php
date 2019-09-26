@@ -41,19 +41,15 @@
             @endforeach
         </div>
     </div>
+    <h1 class="text-center multiled-color mb-5 font-weight-bold">{{ $text['title_2'] ?? '' }}</h1>
     <div class="container-fluid">
-        <div class="row jolden-fondo">
-            <div class="container my-5">
-                <h1 class="text-center multiled-color font-weight-bold">{{ $text['title_2'] ?? '' }}</h1>
-                <div class="row my-5">
-                    @foreach($contenido->file ?? [] as $item)
-                        <div class="col-md-3 text-center mb-5">
-                            <img src="{{ asset($item['image']) }}" alt="" class="img-fluid">
-                            <h4 class="my-3 text-white font-weight-bold">{{ $item['title'] ?? '' }}</h4>
-                        </div>
-                    @endforeach
+        <div class="row">
+            @foreach($proyectos->file ?? [] as $item)
+                <div class="col-md-3 p-0 position-relative d-flex align-items-center">
+                    <img src="{{ asset($item['image']) }}" alt="" class="img-fluid" >
+                    <h3 class="my-3 text-center text-white font-weight-bold position-absolute px-4">{{ $item['subtitle'] ?? '' }}</h3>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

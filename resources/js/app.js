@@ -33,6 +33,10 @@ Vue.component('categoria', require('./adm/Categoria.vue').default);
 Vue.component('novedades', require('./adm/Novedades.vue').default);
 Vue.component('familia', require('./adm/Familia.vue').default);
 Vue.component('productos', require('./adm/Productos.vue').default);
+
+//PRODUCTOS
+Vue.component('senalizacion', require('./adm/Senalizacion.vue').default);
+Vue.component('vial', require('./adm/Vial.vue').default);
 Vue.component('servicios', require('./adm/Servicios.vue').default);
 Vue.component('descargas', require('./adm/Descargas.vue').default);
 Vue.component('clientes', require('./adm/Clientes.vue').default);

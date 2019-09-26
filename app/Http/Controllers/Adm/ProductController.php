@@ -15,11 +15,14 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ProductController extends Controller
 {
-    public function data()
+    public function data($section)
     {
+//        dd($section);
 //        $subfamilias = Subfamily::on(env($site))->orderBy('order')->get();
         $familias = Family::orderBy('order')->get();
-        $productos = Product::with('family')->orderBy('order')->get();
+        $productos = Product::with('family')
+            ->where('section',$section)
+            ->orderBy('order')->get();
         $servicios = Service::orderBy('order')->get();
         $idioma = collect(LaravelLocalization::getSupportedLocales())->only(['es']);
 //        dd($idioma );
@@ -53,13 +56,29 @@ class ProductController extends Controller
                         $images[$key]['title'] = $value['title'];
                     } else {
 //                    dd($value['image']);
-                        $path = $value['image']->store('uploads/productos');
-                        $images[$key]['image'] = asset($path);
+                        $path = $value['image']->store('uploads/productos/img');
+                        $images[$key]['image'] = $path;
                         $images[$key]['title'] = $value['title'];
                     }
 
                 }
                 $categoria->file = $images;
+            }
+            if($request->gallery != null){
+                foreach ($request->gallery as $key => $value) {
+                    if(is_string($value['image'])) {
+//                    $gallery[$key] = $value;
+                        $gallery[$key]['image'] = $value['image'];
+//                        $images[$key]['title'] = $value['title'];
+                    } else {
+//                    dd($value['image']);
+                        $path = $value['image']->store('uploads/productos/gallery');
+                        $gallery[$key]['image'] = $path;
+//                        $images[$key]['title'] = $value['title'];
+                    }
+
+                }
+                $categoria->slider = $gallery;
             }
 
             $categoria->text = $data->lang  ?? null;
@@ -68,6 +87,7 @@ class ProductController extends Controller
 //            $categoria->subfamily_id = $data->lang->es->subfamily_id ?? null;
 //            $familia = Subfamily::on(env($site))->find($data->lang->es->subfamily_id ?? '');
             $categoria->family_id = $familia->family_id ?? null;
+            $categoria->section = $request->seccion ?? null;
             $categoria->slug = Str::slug($data->lang->es->title  ?? null);
             $categoria->save();
 
@@ -83,14 +103,33 @@ class ProductController extends Controller
                     $images[$key]['title'] = $value['title'];
                 } else {
 //                    dd($value['image']);
-                    $path = $value['image']->store('uploads/productos');
-                    $images[$key]['image'] = asset($path);
+                    $path = $value['image']->store('uploads/productos/img');
+                    $images[$key]['image'] = $path;
                     $images[$key]['title'] = $value['title'];
                 }
 
             }
             $categoria->file = $images;
         }
+
+        if($request->gallery != null){
+            foreach ($request->gallery as $key => $value) {
+                if(is_string($value['image'])) {
+//                    $gallery[$key] = $value;
+                    $gallery[$key]['image'] = $value['image'];
+//                        $images[$key]['title'] = $value['title'];
+                } else {
+//                    dd($value['image']);
+                    $path = $value['image']->store('uploads/productos/gallery');
+                    $gallery[$key]['image'] = $path;
+//                        $images[$key]['title'] = $value['title'];
+                }
+
+            }
+            $categoria->slider = $gallery;
+        }
+
+
 //        $familia = Subfamily::on(env($site))->find($data->producto->text->es->subfamily_id ?? '');
         $categoria->text =  $data->producto->text ?? null;
         $categoria->code = $data->producto->text->es->code ?? null;
