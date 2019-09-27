@@ -74,7 +74,7 @@
                     <h1 class="h1-responsive" style="white-space: pre-line; font-size: 45px">{!! $s['title'] ?? '' !!}</h1>
                     <p style="white-space: pre-line">{!! $s['text'] ?? '' !!}</p>
                     @if($key == 0)
-                        <a href="" class="btn bg-white text-capitalize font-weight-bold mt-4 multiled-color p-2 px-4 rounded-pill">Contacto</a>
+                        <a href="{{ route('contacto') }}" class="btn bg-white text-capitalize font-weight-bold ml-0 multiled-color p-2 px-4 rounded-pill">Contacto</a>
                     {{--<a href="" class="btn bg-white text-capitalize text-dark rounded-pill p-2 px-4 multiled-color" style="font-size: 18px;">Contacto</a>--}}
                     @endif
                 </div>

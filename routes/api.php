@@ -16,6 +16,11 @@ use Illuminate\Http\Request;
 Route::get('content-data/{section}', 'Adm\ContentController@data')->name('content.data');
 Route::post('content-update/{id}', 'Adm\ContentController@update')->name('content.update');
 
+//PROYECTOS
+Route::get('proyectos-data', 'Adm\ProjectController@data')->name('project.data');
+Route::post('proyectos-store', 'Adm\ProjectController@store')->name('project.store');
+Route::post('proyectos-update', 'Adm\ProjectController@update')->name('project.update');
+Route::post('proyectos-destroy', 'Adm\ProjectController@destroy')->name('project.destroy');
 //CATEGORIAS
 Route::get('categorias-data', 'Adm\CategoryController@data')->name('category.data');
 Route::post('categorias-store', 'Adm\CategoryController@store')->name('category.store');
@@ -42,10 +47,10 @@ Route::post('subfamilias-store', 'Adm\SubfamilyController@store')->name('subfami
 Route::post('subfamilias-update', 'Adm\SubfamilyController@update')->name('subfamily.update');
 Route::post('subfamilias-destroy', 'Adm\SubfamilyController@destroy')->name('subfamily.destroy');
 //PRODUCTOS
-Route::get('productos-data/{section}', 'Adm\ProductController@data')->name('product.data');
-Route::post('productos-store', 'Adm\ProductController@store')->name('product.store');
-Route::post('productos-update', 'Adm\ProductController@update')->name('product.update');
-Route::post('productos-destroy', 'Adm\ProductController@destroy')->name('product.destroy');
+Route::get('iluminacion-data/{section}', 'Adm\ProductController@data')->name('product.data');
+Route::post('iluminacion-store', 'Adm\ProductController@store')->name('product.store');
+Route::post('iluminacion-update', 'Adm\ProductController@update')->name('product.update');
+Route::post('iluminacion-destroy', 'Adm\ProductController@destroy')->name('product.destroy');
 //DESCARGAS
 Route::get('descargas-data/{section}', 'Adm\DownloadController@data')->name('download.data');
 Route::post('descargas-store', 'Adm\DownloadController@store')->name('download.store');

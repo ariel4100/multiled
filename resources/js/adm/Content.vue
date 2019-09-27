@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-12">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" v-if="content.gallery.length != 0" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" :data-slide-to="index"  v-for="(item,index) in content.gallery" :class="index == 0 ? 'active' : ''"></li>
             </ol>
@@ -40,7 +40,7 @@
         </div>
 
 
-        <fieldset  @dragover="onDropGalleryOver" @drop="onDropGallery">
+        <fieldset v-if="content.gallery.length != 0" @dragover="onDropGalleryOver" @drop="onDropGallery">
             <legend>Selecionar imagenes de sliders 1200x400</legend>
             <draggable v-model="content.gallery" class="row  " draggable=".item" @change="log">
                 <div class="col-md-3 item" v-for="(item, index) in content.gallery" :key="index">
@@ -76,19 +76,19 @@
             <div class="card-body">
                 <fieldset class="mt-5"  v-for="(item,index) in content.lang " :key="index ">
                     <legend>{{ item.name }}</legend>
-                    <div class="md-form"  >
+                    <div class="md-form" v-if="item.title" >
                         <input type="text" :id="'title-'+index" class="form-control" placeholder="Texto 1" v-model="item.title">
                         <!--<label :for="'title-'+index">Texto</label>-->
                     </div>
-                    <div class="md-form"  >
+                    <div class="md-form"  v-if="item.text">
                         <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
                         <jodit-vue v-model="item.text" :id="'text-'+index"></jodit-vue>
                     </div>
-                    <div class="md-form"  >
+                    <div class="md-form" v-if="item.title_2" >
                         <input type="text" :id="'title-'+index" class="form-control" placeholder="Texto 2" v-model="item.title_2">
                         <!--<label :for="'title-'+index">Texto</label>-->
                     </div>
-                    <div class="md-form"  >
+                    <div class="md-form"  v-if="item.text_2">
                         <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
                         <jodit-vue v-model="item.text_2" :id="'text_2-'+index"></jodit-vue>
                     </div>
@@ -110,6 +110,7 @@
                 <div class="row mt-5">
                     <div class="col-md-4 " v-for="(item,index) in content.lang " :key="index ">
                         <input-file-image
+                                v-if="item.banner != 'undefined'"
                                 class="w-100"
                                 :model.sync="item.banner"
                                 id="input-file-descarga-banner"
@@ -170,7 +171,7 @@
             }
         },
         mounted() {
-            // console.log(this.urlData)
+            // console.log(this.content.gallery)
             this.getData()
         },
         computed: {

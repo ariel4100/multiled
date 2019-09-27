@@ -43,12 +43,20 @@
     </div>
     <h1 class="text-center multiled-color mb-5 font-weight-bold">{{ $text['title_2'] ?? '' }}</h1>
     <div class="container-fluid">
-        <div class="row">
-            @foreach($proyectos->file ?? [] as $item)
+        <div class="row justify-content-center">
+            @foreach($proyectos ?? [] as $item)
+                {{--@dd($item)--}}
+                @if(isset($item->text['es']['featured']) == 1)
                 <div class="col-md-3 p-0 position-relative d-flex align-items-center">
-                    <img src="{{ asset($item['image']) }}" alt="" class="img-fluid" >
-                    <h3 class="my-3 text-center text-white font-weight-bold position-absolute px-4">{{ $item['subtitle'] ?? '' }}</h3>
+                    <img src="{{ asset($item->file[0]['image']) }}" alt="" class="img-fluid" >
+                    <div class="position-absolute">
+                        <h3 class="my-3 text-center text-white font-weight-bold  px-4">{{ $item->text['es']['title'] ?? '' }}</h3>
+                        <div class="text-center">
+                            <a href="{{ route('proyectos.show',$item->slug) }}" class="btn btn-white font-weight-bold multiled-color p-2 px-4" style="border-radius: 5rem">Ingresar</a>
+                        </div>
+                    </div>
                 </div>
+                @endif
             @endforeach
         </div>
     </div>
@@ -57,7 +65,7 @@
         <img src="{{ asset($text['banner'] ?? 'uploads/no-img.png') }}" style="z-index: -1" alt="" class="img-fluid">
         <div class="position-absolute text-white" style="top: 50%; left: 5%;">
             {!! $text['text_2'] ?? '' !!}
-            <a href="" class="btn bg-white text-capitalize font-weight-bold mt-4 multiled-color p-2 px-4 rounded-pill">Club Multiled</a>
+            <a href="{{ route('empresa') }}" class="btn bg-white text-capitalize font-weight-bold mt-4 multiled-color p-2 px-4 rounded-pill">Nosotros</a>
         </div>
     </div>
 @endsection

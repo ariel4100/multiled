@@ -15,7 +15,7 @@ class Family extends Model
         'slug', 'text','order','file'
     ];
 
-    public function products()
+    public function product()
     {
         return $this->hasMany('App\Product');
     }

@@ -52,28 +52,28 @@
                                     <input type="text" :id="'title-'+index" class="form-control" placeholder="Orden" v-model="item.order">
                                     <!--<label :for="'title-'+index">Texto</label>-->
                                 </div>
-                                <div class="md-form col-md-8">
-                                    <input type="text" :id="'subtitle-'+index" class="form-control" placeholder="Subtitulo" v-model="item.subtitle">
-                                    <!--<label :for="'title-'+index">Texto</label>-->
-                                </div>
+                                <!--<div class="md-form col-md-8">-->
+                                    <!--<input type="text" :id="'subtitle-'+index" class="form-control" placeholder="Subtitulo" v-model="item.subtitle">-->
+                                    <!--&lt;!&ndash;<label :for="'title-'+index">Texto</label>&ndash;&gt;-->
+                                <!--</div>-->
                                 <!--<div class="md-form col-md-12">-->
                                     <!--<input type="text" :id="'metadatos-'+index" class="form-control" placeholder="Metadatos" v-model="item.keyword">-->
                                 <!--</div>-->
                                 <div class="md-form col-md-12">
-                                    <p>Descripcion</p>
+                                    <p>Descripción</p>
                                 <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
                                     <jodit-vue v-model="item.text" :id="'text-'+index"></jodit-vue>
                                 </div>
                                 <div class="md-form col-md-12">
-                                    <p>Aplicaciones</p>
+                                    <p>Información adicional</p>
                                     <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
                                     <jodit-vue v-model="item.aplicaciones" :id="'aplicaciones-'+index"></jodit-vue>
                                 </div>
-                                <div class="md-form col-md-12">
-                                    <p>Mensajes</p>
-                                    <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
-                                    <jodit-vue v-model="item.mensaje" :id="'mensaje-'+index"></jodit-vue>
-                                </div>
+                                <!--<div class="md-form col-md-12">-->
+                                    <!--<p>Mensajes</p>-->
+                                    <!--&lt;!&ndash;<input type="text" class="d-none" v-model="item.text = 's'">&ndash;&gt;-->
+                                    <!--<jodit-vue v-model="item.mensaje" :id="'mensaje-'+index"></jodit-vue>-->
+                                <!--</div>-->
 <!--                                <div class="md-form col-md-6">-->
 <!--                                    <input type="text" :id="'venta-'+index" class="form-control" placeholder="Unidad de venta" v-model="item.venta">-->
 <!--                                </div>-->
@@ -93,15 +93,7 @@
                                         <!--</option>-->
                                     <!--</select>-->
                                 <!--</div>-->
-                                <div class="md-form col-md-6">
-                                    <h6 class=" ">Caracteristicas</h6>
-                                    <div class=" ">
-                                        <multiselect v-model="content.services_related" :options="content.services" :multiple="true" :custom-label="customLabel" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="" selectLabel="Haga click para seleccionar" deselectLabel="Haga click para eliminar" selectedLabel="seleccionado" track-by="id">
-                                            <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">opciones seleccionadas {{ values.length }}</span></template>
-                                        </multiselect>
 
-                                    </div>
-                                </div>
                                 <div class="col-md-12">
                                     <div class=" ">
                                         <label class="typo__label">Productos relacionados</label>
@@ -128,23 +120,23 @@
                                         <!--<label class="custom-control-label" for="customCheck3">Nuevo</label>-->
                                     <!--</div>-->
                                 <!--</div>-->
-                                <div class="col-md-12 mt-5">
-                                    <a @click="addImageGallery()" class="btn btn-info btn-md">Añadir Galeria</a>
-                                    <div class="row">
-                                        <div class="col-md-4 position-relative" v-for="(item,index) in content.images_gallery" :key="index">
-                                            <span @click="deleteImageGallery(index)" class="badge badge-danger text-white rounded-circle position-absolute" style="top: -10px; right: 0; cursor: pointer; z-index: 11"">X</span>
-                                            <input-file-image
-                                                    class=" "
-                                                    :model.sync="item.image"
-                                                    id="input-file-descargas1"
-                                                    label-text="Seleccione Imagen"
-                                            ></input-file-image>
-                                            <!--<div class="md-form">-->
-                                            <!--<input type="text" class="form-control" v-model="item.title" placeholder="Titulo">-->
-                                            <!--</div>-->
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--<div class="col-md-12 mt-5">-->
+                                    <!--<a @click="addImageGallery()" class="btn btn-info btn-md">Añadir Galeria</a>-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-md-4 position-relative" v-for="(item,index) in content.images_gallery" :key="index">-->
+                                            <!--<span @click="deleteImageGallery(index)" class="badge badge-danger text-white rounded-circle position-absolute" style="top: -10px; right: 0; cursor: pointer; z-index: 11"">X</span>-->
+                                            <!--<input-file-image-->
+                                                    <!--class=" "-->
+                                                    <!--:model.sync="item.image"-->
+                                                    <!--id="input-file-descargas1"-->
+                                                    <!--label-text="Seleccione Imagen"-->
+                                            <!--&gt;</input-file-image>-->
+                                            <!--&lt;!&ndash;<div class="md-form">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<input type="text" class="form-control" v-model="item.title" placeholder="Titulo">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                                 <div class="col-md-12 mt-5">
                                     <a @click="addImage()" class="btn btn-info btn-md">Añadir Imagen</a>
                                     <div class="row">
@@ -162,23 +154,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-5">
-                                    <a @click="addVideo()" class="btn btn-info btn-md">Añadir Video</a>
-                                    <!--<p class=""><b class="font-weight-bold text-info">Video</b> Para ingresar un video de Youtube, deberá ingresar el código que se encuentra al final de la URL del video.-->
-                                        <!--<br>-->
-                                        <!--Ejemplo:-->
-                                        <!--<br>https://www.youtube.com/watch?v= <b class="font-weight-bold">a5uQMwRMHcs</b>-->
-                                        <!--<br>https://youtu.be/ <b class="font-weight-bold">a5uQMwRMHcs</b></p>-->
-                                    <div class="row">
-                                        <div class="col-md-4 position-relative" v-for="(item,index) in content.videos" :key="index">
-                                            <span @click="deleteVideo(index)" class="badge badge-danger text-white rounded-circle position-absolute" style="top: -10px; right: 0; cursor: pointer; z-index: 11">X</span>
-                                            <iframe width="100%" height="200" :src="'https://www.youtube.com/embed/'+item.video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                            <div class="md-form">
-                                                <input type="text" class="form-control" v-model="item.video" placeholder="Codigo del video">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--<div class="col-md-12 mt-5">-->
+                                    <!--<a @click="addVideo()" class="btn btn-info btn-md">Añadir Video</a>-->
+                                    <!--&lt;!&ndash;<p class=""><b class="font-weight-bold text-info">Video</b> Para ingresar un video de Youtube, deberá ingresar el código que se encuentra al final de la URL del video.&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;Ejemplo:&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<br>https://www.youtube.com/watch?v= <b class="font-weight-bold">a5uQMwRMHcs</b>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<br>https://youtu.be/ <b class="font-weight-bold">a5uQMwRMHcs</b></p>&ndash;&gt;-->
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-md-4 position-relative" v-for="(item,index) in content.videos" :key="index">-->
+                                            <!--<span @click="deleteVideo(index)" class="badge badge-danger text-white rounded-circle position-absolute" style="top: -10px; right: 0; cursor: pointer; z-index: 11">X</span>-->
+                                            <!--<iframe width="100%" height="200" :src="'https://www.youtube.com/embed/'+item.video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+                                            <!--<div class="md-form">-->
+                                                <!--<input type="text" class="form-control" v-model="item.video" placeholder="Codigo del video">-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                             </div>
                         </fieldset>
                     </div>
@@ -212,28 +204,28 @@
                                     <input type="text" :id="'title2-'+index" class="form-control" placeholder="Orden" v-model="item.order">
                                     <!--<label :for="'title-'+index">Texto</label>-->
                                 </div>
-                                <div class="md-form col-md-6">
-                                    <input type="number" :id="'code-'+index" class="form-control" placeholder="Codigo del producto" v-model="item.code">
-                                </div>
-                                <div class="md-form col-md-6">
-                                    <input type="number" :id="'venta-'+index" class="form-control" placeholder="Unidad de venta" v-model="item.venta">
-                                </div>
+                                <!--<div class="md-form col-md-6">-->
+                                    <!--<input type="number" :id="'code-'+index" class="form-control" placeholder="Codigo del producto" v-model="item.code">-->
+                                <!--</div>-->
+                                <!--<div class="md-form col-md-6">-->
+                                    <!--<input type="number" :id="'venta-'+index" class="form-control" placeholder="Unidad de venta" v-model="item.venta">-->
+                                <!--</div>-->
                                 <!--<div class="md-form col-md-6">-->
                                 <!--<money v-model="item.precio" id="Precio"  class="form-control " style="text-align: right"  v-bind="money"></money>-->
                                 <!--</div>-->
 
+                                <!--<div class="md-form col-md-12">-->
+                                    <!--<input type="text" :id="'metadatos2-'+index" class="form-control" placeholder="Metadatos" v-model="item.keyword">-->
+                                <!--</div>-->
                                 <div class="md-form col-md-12">
-                                    <input type="text" :id="'metadatos2-'+index" class="form-control" placeholder="Metadatos" v-model="item.keyword">
+                                    <p>Descripción</p>
+                                    <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
+                                    <jodit-vue v-model="item.text" :id="'texta-'+index"></jodit-vue>
                                 </div>
                                 <div class="md-form col-md-12">
-                                    <p>Descripcion</p>
+                                    <p>Información adicional</p>
                                     <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
-                                    <jodit-vue v-model="item.text" :id="'text12-'+index"></jodit-vue>
-                                </div>
-                                <div class="md-form col-md-12">
-                                    <p>Caracteristicas</p>
-                                    <!--<input type="text" class="d-none" v-model="item.text = 's'">-->
-                                    <jodit-vue v-model="item.caracteristicas" :id="'caracteristicas2-'+index"></jodit-vue>
+                                    <jodit-vue v-model="item.caracteristicas1" :id="'caracteristicasa-'+index"></jodit-vue>
                                 </div>
                                 <!--<div class="md-form col-md-6">-->
                                     <!--<h6>Tipo de Cliente</h6>-->
@@ -248,28 +240,13 @@
                                 <div class="md-form col-md-6">
                                     <h6>Seleccione una Familia</h6>
                                     <select v-model="item.family_id" :id="'family_id2-'+index" class="custom-select">
-                                        <option :value="family" v-for="family in content.familias">
+                                        <option :value="family.id" v-for="family in content.familias">
                                             {{ family.text.es.title }}
                                         </option>
                                     </select>
                                 </div>
-                                <div class="md-form col-md-6" v-if="item.family_id">
-                                    <h6>Seleccione una Subamilia</h6>
-                                    <select v-model="item.subfamily_id" :id="'subfamily_id-'+index" class="custom-select">
-                                        <option :value="subfamily.id" v-for="subfamily in item.family_id.subfamily">
-                                            {{ subfamily.text.es.title }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="md-form col-md-6">
-                                    <div class=" ">
-                                        <label class="typo__label">Caracteristicas</label>
-                                        <multiselect v-model="content.services_related" :options="content.services" :multiple="true" :custom-label="customLabel" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="" selectLabel="Haga click para seleccionar" deselectLabel="Haga click para eliminar" selectedLabel="seleccionado" track-by="id">
-                                            <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">opciones seleccionadas {{ values.length }}</span></template>
-                                        </multiselect>
 
-                                    </div>
-                                </div>
+
                                 <div class="col-md-12">
                                     <div class=" ">
                                         <label class="typo__label">Productos relacionados</label>
@@ -280,24 +257,24 @@
                                     </div>
                                     <!--<related :model.sync="content.related" :related="content.productos"></related>-->
                                 </div>
-                                <div class="md-form col-md-4 d-flex justify-content-center">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" v-model="item.news" id="customCheck12">
-                                        <label class="custom-control-label" for="customCheck12">Novedades</label>
-                                    </div>
-                                </div>
-                                <div class="md-form col-md-4 d-flex justify-content-center">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck22">
-                                        <label class="custom-control-label" for="customCheck22">Destacado</label>
-                                    </div>
-                                </div>
-                                <div class="md-form col-md-4 d-flex justify-content-center">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" v-model="item.new" id="customCheck32">
-                                        <label class="custom-control-label" for="customCheck32">Nuevo</label>
-                                    </div>
-                                </div>
+                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
+                                    <!--<div class="custom-control custom-checkbox">-->
+                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.news" id="customCheck12">-->
+                                        <!--<label class="custom-control-label" for="customCheck12">Novedades</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
+                                    <!--<div class="custom-control custom-checkbox">-->
+                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck22">-->
+                                        <!--<label class="custom-control-label" for="customCheck22">Destacado</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
+                                    <!--<div class="custom-control custom-checkbox">-->
+                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.new" id="customCheck32">-->
+                                        <!--<label class="custom-control-label" for="customCheck32">Nuevo</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                                 <div class="col-md-12 mt-5">
                                     <a @click="addImage()" class="btn btn-info btn-md">Añadir</a>
                                     <div class="row">

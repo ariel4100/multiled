@@ -24,6 +24,7 @@
 @section('content')
 <div class="container my-5">
     {{--@include('page.partials.breadcrumb')--}}
+    @include('page.partials.message')
     <nav class="d-block">
         <ol class="list-unstyled d-flex">
             <li><i class="fas fa-home pr-1"></i>|</li>
@@ -39,7 +40,7 @@
                 @forelse($señalizacion as $key=>$item)
                     {{--@dd($item)--}}
                     <li class="list-group-item border-0 px-0 py-0 bg-transparent pb-2">
-                        <a href="{{ route('p.senalizacion.show',$item->slug) }}" data-target="#familia_{{$key}}" data-toggle="collapse" aria-expanded="false" style="color: #595959;" class="d-flex align-items-center px-2 py-1 border-bottom {{ isset($familia) && $familia->id == $item->id ? 'multiled-color' : ''}}  ">
+                        <a href="{{ route('p.senalizacion.show',$item->slug) }}" data-target="#familia_{{$key}}" data-toggle="collapse" aria-expanded="false" style="color: #595959;" class="d-flex align-items-center px-2 py-1 border-bottom {{ isset($producto) && $producto->id == $item->id ? 'multiled-color' : ''}}  ">
                             <span onclick="location.href='{{ route('p.senalizacion.show',$item->slug) }}'">{!! $item->text['es']['title'] ?? $item->title !!}</span><i class="fas fa-chevron-right ml-auto"></i>
                         </a>
                     </li>
@@ -97,6 +98,9 @@
 
                 </div>
                 @endif
+                    <div class="col-md-12">
+                        @include('page.partials.form')
+                    </div>
                 @if(count($producto->related) > 0)
                 <div class="col-md-12 mb-5">
                     <p class="p-2 multiled-color border-bottom" style="background-color: #F9F9F9">

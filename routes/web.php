@@ -21,13 +21,27 @@ Route::get('/', 'FrontendController@home')->name('home');
 Route::get('nosotros', 'FrontendController@empresa')->name('empresa');
 Route::get('presupuesto', 'FrontendController@presupuesto')->name('presupuesto');
 Route::get('contacto', 'FrontendController@contacto')->name('contacto');
+Route::get('proyectos', 'FrontendController@proyectos')->name('proyectos');
+Route::get('proyectos/{slug}', 'FrontendController@proyecto_show')->name('proyectos.show');
+
+//NEWSLETTER
+Route::get('newsletter','NewsletterController@index')->name('newsletter.index');
+Route::post('enviar-newsletter','NewsletterController@store')->name('newsletter.store');
+
+//ILUMINACION
+Route::group(['prefix' => 'iluminación'],function (){
+    Route::get('/', 'FrontendController@iluminacion')->name('f.iluminacion');
+    Route::get('/{slug}', 'FrontendController@productos_iluminacion')->name('p.iluminacion');
+    Route::get('/{category}/{slug}', 'FrontendController@productos_iluminacion_show')->name('p.iluminacion.show');
+//    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
+});
 
 //VIAL
 Route::group(['prefix' => 'vial'],function (){
 //    Route::get('/', 'FrontendController@familias')->name('familias');
     Route::get('/', 'FrontendController@productos_vial')->name('p.vial');
     Route::get('/{slug}', 'FrontendController@vial')->name('p.vial.show');
-//    Route::get('producto/{slug}', 'FrontendController@productos')->name('productos');
+//    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
 });
 
 //SEÑALIZACION
@@ -35,27 +49,28 @@ Route::group(['prefix' => 'señalización'],function (){
 //    Route::get('/', 'FrontendController@familias')->name('familias');
     Route::get('/', 'FrontendController@productos_senalizacion')->name('p.senalizacion');
     Route::get('/{slug}', 'FrontendController@senalizacion')->name('p.senalizacion.show');
-//    Route::get('producto/{slug}', 'FrontendController@productos')->name('productos');
+//    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
 });
 
 //PRODUCTOS
-Route::group(['prefix' => 'productos'],function (){
+Route::group(['prefix' => 'iluminacion'],function (){
 //    Route::get('/', 'FrontendController@familias')->name('familias');
     Route::get('familia/{slug}', 'FrontendController@familia')->name('familia');
     Route::get('subfamilia/{slug}', 'FrontendController@subfamilia')->name('subfamilia');
-    Route::get('producto/{slug}', 'FrontendController@productos')->name('productos');
+    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
 });
 
 //NOVEDADES
 Route::group(['prefix' => 'novedades'],function (){
-    Route::get('/', 'Jolden\FrontendController@novedades')->name('novedades');
-    Route::get('categoria/{slug}', 'Jolden\FrontendController@novedad')->name('categoria.novedad');
-    Route::get('novedad/{slug}', 'Jolden\FrontendController@novedadshow')->name('novedad.show');
+    Route::get('/', 'FrontendController@novedades')->name('novedades');
+    Route::get('/{slug}', 'FrontendController@novedad')->name('categoria.novedad');
+    Route::get('novedad/{slug}', 'FrontendController@novedadshow')->name('novedad.show');
 });
 
 
 /***MAIL***/
 Route::post('contacto','MailController@contacto')->name('contacto.mail');
+Route::post('ficha','MailController@ficha_producto')->name('ficha.mail');
 Route::post('presupuesto-mail','MailController@presupuesto')->name('presupuesto.mail');
 /****FIN MAIL****/
 Route::get('buscador','FrontendController@buscador')->name('buscador');

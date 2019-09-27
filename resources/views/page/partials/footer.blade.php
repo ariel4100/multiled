@@ -17,23 +17,23 @@
             <div class="col-md-3 mb-md-0 mt-4">
                 <h5 class="text-uppercase font-weight-bold text-dark">Productos</h5>
                 <ul class="list-unstyled">
-                    @foreach($familias ?? [] as $item)
-                        <li>
-                            <a href="{{ url('jolden.familia',$item->slug) }}" class="text-uppercase">{{ $item->text['es']['title'] ?? '' }}</a>
-                        </li>
-                    @endforeach
-                    {{--<li>--}}
-                    {{--<a href="{{ url('/') }} " class="text-uppercase">Lista General</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                    {{--<a href="{{ url('/') }}" class="text-uppercase">Herramientas Hidráulicas</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                    {{--<a href="{{ url('/') }}" class="text-uppercase">Herramientas Neumáticas</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                    {{--<a href="{{ url('/') }}" class="text-uppercase">Ruedas</a>--}}
-                    {{--</li>--}}
+                    {{--@foreach($familias ?? [] as $item)--}}
+                        {{--<li>--}}
+                            {{--<a href="{{ url('jolden.familia',$item->slug) }}" class="text-uppercase">{{ $item->text['es']['title'] ?? '' }}</a>--}}
+                        {{--</li>--}}
+                    {{--@endforeach--}}
+                    <li>
+                    <a href="{{ route('p.senalizacion') }} " class="text-uppercase">Señalización</a>
+                    </li>
+                    <li>
+                    <a href="{{ route('f.iluminacion') }}" class="text-uppercase">Iluminación</a>
+                    </li>
+                    <li>
+                    <a href="{{ route('f.iluminacion') }}" class="text-uppercase">Publicidad</a>
+                    </li>
+                    <li>
+                    <a href="{{ route('p.vial') }}" class="text-uppercase">Vial</a>
+                    </li>
 
                 </ul>
             </div>
@@ -62,11 +62,11 @@
             <div class="col-md-3 mb-md-0 mt-4">
                 <h5 class="text-uppercase wolf-color font-weight-bold text-dark">INFORMACIÓN</h5>
                 <ul class="list-unstyled">
+                    {{--<li>--}}
+                        {{--<a href="#" class="text-uppercase">Condiciones generales</a>--}}
+                    {{--</li>--}}
                     <li>
-                        <a href="#" class="text-uppercase">Condiciones generales</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-uppercase">Términos y condiciones</a>
+                        <p class=" m-0 p-0 text-uppercase">Términos y condiciones generales</p>
                     </li>
                 </ul>
                 <h5 class="text-uppercase wolf-color font-weight-bold text-dark">SEGUINOS EN </h5>

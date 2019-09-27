@@ -1,5 +1,5 @@
 @extends('page.layouts.app')
-@section('title','JOLDEN - EMPRESA')
+@section('title','MULTILED - NOSOTROS')
 @section('content')
     @include('page.partials.carousel')
 <div class="container my-5">

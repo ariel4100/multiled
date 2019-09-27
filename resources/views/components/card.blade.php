@@ -16,7 +16,7 @@
 
 
 {{--<div class="row my-5">--}}
-    {{--@foreach($productos as $item)--}}
+    {{--@foreach($iluminacion as $item)--}}
         {{--@dd($item->image[0]['image'])--}}
         {{--<div class="col-md-4 mb-5">--}}
             {{--<a href="{{ $route ?? route('producto',['producto' => $item->id]) }}" class=" " style="text-decoration: none; color: unset;">--}}

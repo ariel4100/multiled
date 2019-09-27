@@ -29,8 +29,8 @@
             console.log(this.carrito.length)
             // let pedidoData = localStorage.getItem("pedidoData")?JSON.parse(localStorage.getItem("pedidoData")):{}
             // axios.get(this.urlData).then((response) => {
-            //     this.productos = response.data.productos
-            //     // console.log(this.productos)
+            //     this.iluminacion = response.data.iluminacion
+            //     // console.log(this.iluminacion)
             //     // this.car = localStorage.getItem("tubulonCar")
             //
             // });

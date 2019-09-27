@@ -1,5 +1,5 @@
 @extends('page.layouts.app')
-
+@section('title','MULTILED - Solicitud de presupuesto')
 @section('content')
 <div class="container my-5 px-5">
     <div class="row text-center">

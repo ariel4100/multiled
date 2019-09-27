@@ -1,5 +1,5 @@
 @extends('page.layouts.app')
-    @section('title','MULTILED - '.  'SeñalizaciÓn')
+    @section('title','MULTILED - '.  'Señalización')
 @push('style')
     <style>
         .caja {
@@ -27,6 +27,7 @@
     {{--<nav class="d-flex justify-content-center mb-n4">--}}
          {{--<h4 class="p-2 text-white font-weight-bold bg-dark">CATEGORÍAS DE PRODUCTOS</h4>--}}
     {{--</nav>--}}
+    <h1 class="multiled-color font-weight-bold">Productos</h1>
     {{--<hr class="bg-dark m-0 pt-1">--}}
     <div class="row my-5">
         {{--@include('page.partials.botonera')--}}

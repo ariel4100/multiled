@@ -29,7 +29,7 @@
                         <a href="{{ route('empresa') }}" class=" nav-link font-weight-bold" >
                             NOSOTROS
                         </a>
-                        <a href="{{ route('empresa') }}" class=" nav-link font-weight-bold" >
+                        <a href="{{ route('proyectos') }}" class=" nav-link font-weight-bold" >
                             PROYECTOS
                         </a>
                         {{--@if(!auth()->guard('client')->check())--}}
@@ -109,7 +109,7 @@
                 <ul class="navbar-nav ml-auto d-flex align-items-center">
                     <!-- Features -->
 
-                    {{--<li class="nav-item"><a class="nav-link ml-2 {{ request()->is('catalogos') ? 'activo' : '' }}" href="{{ url('jolden.productos') }}">CATÁLOGO</a></li>--}}
+                    {{--<li class="nav-item"><a class="nav-link ml-2 {{ request()->is('catalogos') ? 'activo' : '' }}" href="{{ url('jolden.iluminacion') }}">CATÁLOGO</a></li>--}}
 
                     @if(request()->is('privada*'))
                         @if(Auth()->guard('client')->user()->type == 'client')
@@ -137,14 +137,14 @@
                             </a>
 
                     @else
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('/') ? 'activo' : '' }} " href="{{ url('jolden.home') }}">NEWS</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('novedades') ? 'activo' : '' }} " href="{{ route('novedades') }}">NEWS</a></li>
                         {{--@foreach($familias as $item)--}}
                             {{--<li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('presupuesto') ? 'activo' : '' }} " href="{{ route('familia',$item->slug) }}">{{ $item->text['es']['title'] ?? '' }}</a></li>--}}
                         {{--@endforeach--}}
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('empresa') ? 'activo' : '' }} " href="{{ url('jolden.empresa') }}">SEÑALIZACIÓN</a></li>
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('productos*') ? 'activo' : '' }} " href="{{ url('jolden.familias') }}">ILUMINACIÓN</a></li>
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('novedades') ? 'activo' : '' }} " href="{{ url('jolden.novedades') }}">PUBLICIDAD</a></li>
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('contdacto') ? 'activo' : '' }} " href="{{ url('jolden.contacto') }}">VIAL</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('señalización*') ? 'activo' : '' }} " href="{{ route('p.senalizacion') }}">SEÑALIZACIÓN</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('iluminación*') ? 'activo' : '' }} " href="{{ route('f.iluminacion') }}">ILUMINACIÓN</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('novedades') ? 'activo' : '' }} " href="{{ route('p.senalizacion') }}">PUBLICIDAD</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('vial*') ? 'activo' : '' }} " href="{{ route('p.vial') }}">VIAL</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('presupuesto') ? 'activo' : '' }} " href="{{ route('presupuesto') }}">SOLICITAR PRESUPUESTO</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('contacto') ? 'activo' : '' }} " href="{{ route('contacto') }}">CONTACTO</a></li>
 

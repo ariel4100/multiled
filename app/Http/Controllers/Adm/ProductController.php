@@ -18,6 +18,10 @@ class ProductController extends Controller
     public function data($section)
     {
 //        dd($section);
+        if ($section == 'productos')
+        {
+            $section = null;
+        }
 //        $subfamilias = Subfamily::on(env($site))->orderBy('order')->get();
         $familias = Family::orderBy('order')->get();
         $productos = Product::with('family')
@@ -86,7 +90,7 @@ class ProductController extends Controller
             $categoria->order = $data->lang->es->order  ?? null;
 //            $categoria->subfamily_id = $data->lang->es->subfamily_id ?? null;
 //            $familia = Subfamily::on(env($site))->find($data->lang->es->subfamily_id ?? '');
-            $categoria->family_id = $familia->family_id ?? null;
+            $categoria->family_id = $data->lang->es->family_id ?? null;
             $categoria->section = $request->seccion ?? null;
             $categoria->slug = Str::slug($data->lang->es->title  ?? null);
             $categoria->save();
@@ -134,12 +138,12 @@ class ProductController extends Controller
         $categoria->text =  $data->producto->text ?? null;
         $categoria->code = $data->producto->text->es->code ?? null;
         $categoria->order =  $data->producto->text->es->order ?? null;
-        $categoria->family_id = $familia->family_id ?? null;
+        $categoria->family_id = $data->producto->text->es->family_id ?? null;
 //        $categoria->subfamily_id = $data->producto->text->es->subfamily_id ?? null;
         $categoria->slug = Str::slug( $data->producto->text->es->title ?? null);
         $categoria->save();
         $categoria->related()->sync($related->pluck('id'));
-        return $categoria;
+//        return $categoria;
         return response()->json('guaradado');
 //        dd($site);
 

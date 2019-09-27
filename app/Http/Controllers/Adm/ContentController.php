@@ -94,7 +94,7 @@ class ContentController extends Controller
                     $images[$key]['text'] = $value['text'] ?? '';
                     $images[$key]['keyword'] = $value['keyword'] ?? '';
                     $images[$key]['description'] = $value['description'] ?? '';
-                    $images[$key]['featured'] = intval($value['featured']) ? 1 : 0;
+                    $images[$key]['featured'] = intval($value['featured'] ?? '') ? 1 : 0;
                 } else {
 //                    dd($value);
                     $path = $value['image']->store('uploads/images');
@@ -104,7 +104,7 @@ class ContentController extends Controller
                     $images[$key]['text'] = $value['text'] ?? '';
                     $images[$key]['keyword'] = $value['keyword'] ?? '';
                     $images[$key]['description'] = $value['description'] ?? '';
-                    $images[$key]['featured'] = intval($value['featured'])? 1 : 0;
+                    $images[$key]['featured'] = intval($value['featured'] ?? '')? 1 : 0;
                 }
 //                return $value['image'];
 //                $path = $value['image']->store('public/uploads/gallery');

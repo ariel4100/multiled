@@ -263,7 +263,7 @@
                                         </multiselect>
 
                                     </div>
-                                    <!--<related :model.sync="content.related" :related="content.productos"></related>-->
+                                    <!--<related :model.sync="content.related" :related="content.iluminacion"></related>-->
                                 </div>
                                 <input-file-image
                                         class=" mt-5"

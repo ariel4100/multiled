@@ -22,8 +22,10 @@
         @endif
         @if($section == 'proyectos')
             <proyectos
-                    url-data="{{ route('content.data',['section' => $section]) }}"
-                    url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
+                    url-data="{{ route('project.data') }}"
+                    url-add="{{ route('project.store') }}"
+                    url-update="{{ route('project.update') }}"
+                    url-destroy="{{ route('project.destroy') }}"
             ></proyectos>
         @endif
 
@@ -49,7 +51,7 @@
             <section class="card shadow">
                 <div class="card-body">
                     <productos
-                            url-data="{{ route('product.data') }}"
+                            url-data="{{ route('product.data',['section'=> $section]) }}"
                             url-add="{{ route('product.store') }}"
                             url-update="{{ route('product.update') }}"
                             url-destroy="{{ route('product.destroy') }}"
@@ -141,7 +143,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        {{--<a href="{{ route('export.productos') }}" class="btn btn-success m-0 float-right"><i class="fas fa-download mx-2"></i>Exportar General</a>--}}
+                        {{--<a href="{{ route('export.iluminacion') }}" class="btn btn-success m-0 float-right"><i class="fas fa-download mx-2"></i>Exportar General</a>--}}
                         <h5 class="card-title">Carga General</h5>
                         <p class="card-text">Para hacer la carga general mediante un archivo Excel, deberá cumplir lo siguiente:</p>
                         <ol>

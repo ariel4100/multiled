@@ -60,6 +60,7 @@
                 {{--</div>--}}
                 {{--<div class="sidebar-brand-text mx-3"> Administrador <sup></sup></div>--}}
             {{--</a>--}}
+{{--            <img src="{{ asset($header ?? '') }}" alt="" class="img-fluid">--}}
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -158,6 +159,12 @@
                 <a href="{{ route('contenido.index',['section' => 'contacto']) }}" class="nav-link">
                     <i class="fas fa-fw fa-chart-area"></i>
                     Contacto
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('newsletter.index') }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Newsletter
                 </a>
             </li>
             <div class="sidebar-heading">

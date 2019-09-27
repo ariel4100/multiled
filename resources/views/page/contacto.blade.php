@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="col-md-8 bg-white">
-            <form action="{{ url('contacto.post') }}" method="post" class="row">
+            <form action="{{ route('contacto.mail') }}" method="post" class="row">
                 @csrf
                 <div class="md-form col-md-6">
                     <input type="text" class="form-control" required name="nombre" placeholder="Nombre">

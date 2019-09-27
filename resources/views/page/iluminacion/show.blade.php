@@ -1,5 +1,5 @@
 @extends('page.layouts.app')
-@section('title','JOLDEN - '. $familia->text['es']['title'] . ' | ' . $subfamilia->text['es']['title'] . ' | ' . $producto->text['es']['title'] )
+@section('title','MULTILED - '. $familia->text['es']['title'] . ' | ' .  ' | ' . $producto->text['es']['title'] )
 @push('style')
     <style>
         .caja {
@@ -24,14 +24,7 @@
 @section('content')
 <div class="container my-5">
     @include('page.partials.breadcrumb')
-    <form class="row justify-content-center my-4 p-3" action="{{ route('jolden.buscador.p') }}" method="get" style="background-color: #F9F9F9">
-        <div class="col-md-8 d-flex">
-            <input type="text" name="name" class="form-control my-2" placeholder="Buscar por codigo,nombre,marca.">
-            <div class="">
-                <button type="submit" class="btn btn-md jolden-fondo rounded-pill text-white py-2 my-2" style="font-size: .80rem">Buscar</button>
-            </div>
-        </div>
-    </form>
+
     <div class="row my-5">
         @include('page.partials.botonera')
         <div class="col-md-9">
@@ -49,16 +42,16 @@
                      {!! $text['text'] ?? '' !!}
                     <div class=" d-flex  mt-3">
                         {{--<a href="" class="btn px-4 jolden-fondo text-white font-weight-bold rounded-pill">FICHA PDF</a>--}}
-                        <a href="{{ route('jolden.contacto') }}" class="btn px-4 jolden-fondo text-white font-weight-bold rounded-pill">CONSULTAR</a>
+                        <a href="{{ route('contacto') }}" class="btn px-4 multiled-fondo text-white font-weight-bold rounded-pill">CONSULTAR</a>
                     </div>
                 </div>
             </div>
             {{--@DD($text)--}}
             <div class="row my-5">
-                <div class="col-md-6">
-                    @if(isset($text['caracteristicas']))
-                        <h4 class="font-weight-bold p-2" style="background-color: #F9F9F9">Caracteristicas</h4>
-                        {!! $text['caracteristicas'] ?? '' !!}
+                <div class="col-md-12" style=" overflow: hidden">
+                    @if(isset($text['aplicaciones']))
+                        <h4 class="font-weight-bold p-2" >Información adicional</h4>
+                        {!! $text['aplicaciones'] ?? '' !!}
                     @endif
 
 
@@ -76,7 +69,7 @@
                 @foreach($producto->related as $item)
                     <div class="col-md-4 mb-5">
                         <!--Zoom effect-->
-                        <a href="{{ route('jolden.productos',$item->slug) }}" class="">
+                        <a href="{{ route('p.iluminacion.show',$item->slug) }}" class="">
                             <div class="view overlay zoom">
                                 <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid " style="width: 300px; height: 200px" alt="smaple image">
                                 <div class="mask caja flex-center" style="background-color: rgba(5, 139, 140,0.7)">
