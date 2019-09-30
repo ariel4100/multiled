@@ -12,7 +12,7 @@
 
             @foreach($gallery ?? [] as $k=>$item)
                 {{--@dd($item)--}}
-                <div class="carousel-item border d-flex justify-content-center align-items-center {{ $k == 0 ? 'active' : '' }}" style="height: 300px;">
+                <div class="carousel-item border  {{ $k == 0 ? 'active' : '' }}" style="height: 300px;">
                     <img class="img-fluid" style=" height: 300px;" onError="this.src='{{ asset('uploads/no-img.png')}}'"
                          onclick="zoom(this)" src="{{ asset($item{'image'}) }}"
                          data-toggle="modal" data-target="#modalImagen"

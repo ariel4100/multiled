@@ -89,6 +89,20 @@
 
         @endif
 
+        @if($section == 'caracteristicas')
+            <section class="card shadow">
+                <div class="card-body">
+                    <caracteristicas
+                            url-data="{{ route('caract.data') }}"
+                            url-add="{{ route('caract.store') }}"
+                            url-update="{{ route('caract.update') }}"
+                            url-destroy="{{ route('caract.destroy') }}"
+                    ></caracteristicas>
+                </div>
+            </section>
+        @endif
+
+
 
         @if($section == 'servicios')
             <section class="card shadow">

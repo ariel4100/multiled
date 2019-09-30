@@ -16,12 +16,21 @@ class FrontendController extends Controller
     {
         $contenido = Content::where('section','home')->first();
         $proyectos = Project::orderBy('order')->limit(4)->get();
-//        dd($contenido->slider);
+        $productos = Product::orderBy('order')->get();
+        $destacados = $productos->filter(function ($value, $key) {
+//            dd($value->text['es']['featured']);
+            if (isset($value->text['es']['featured']))
+            {
+                return $value;
+            }
+        });
+//        dd($destacados->slice(0,4));
+        $destacados = $destacados->slice(0,4);
 //        $destacados = Product::on('mysql')->where('text->es->featured',true )->get();
 //        dd($proyectos);
         $slider =$contenido->slider;
         $text = $contenido->text['es'];
-        return view('page.home',compact('contenido','text','slider','proyectos'));
+        return view('page.home',compact('contenido','text','slider','proyectos','destacados'));
     }
     public function empresa()
     {
@@ -49,18 +58,18 @@ class FrontendController extends Controller
 
     public function productos_senalizacion()
     {
-        $señalizacion = Product::where('section','senalizacion')->get();
+        $senalizacion = Product::where('section','senalizacion')->get();
 //        $slider =$contenido->slider;
 //        dd($slider);
 //        $text = $contenido->text['es'];
-        return view('page.señalizacion.index',compact('señalizacion'));
+        return view('page.senalizacion.index',compact('senalizacion'));
     }
     public function senalizacion($slug)
     {
-        $señalizacion = Product::where('section','senalizacion')->get();
+        $senalizacion = Product::where('section','senalizacion')->get();
         $producto = Product::where('slug',$slug)->first();
         $text = $producto->text['es'];
-        return view('page.señalizacion.show',compact('producto','señalizacion','text'));
+        return view('page.senalizacion.show',compact('producto','senalizacion','text'));
     }
 
     public function productos_vial()

@@ -87,7 +87,7 @@ class FamilyController extends Controller
 
     }
 
-    public function update(Request $request, $site)
+    public function update(Request $request)
     {
 //        return $request->all();
 //        dd($site);
@@ -102,7 +102,7 @@ class FamilyController extends Controller
 //        dd($request->all());
     }
 
-    public function destroy(Request $request, $site)
+    public function destroy(Request $request)
     {
         Family::find($request->id)->delete();
         return response()->json('guaradado');

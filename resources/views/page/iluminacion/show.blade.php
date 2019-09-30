@@ -57,7 +57,8 @@
 
                 </div>
                 <div class="col-md-6">
-                    @if(isset($text['planos']))
+{{--                    @dd($producto)--}}
+                    @if(isset($text['video']))
                         <h4 class="font-weight-bold p-2" style="background-color: #F9F9F9">Planos</h4>
                     @endif
                 </div>
@@ -69,14 +70,14 @@
                 @foreach($producto->related as $item)
                     <div class="col-md-4 mb-5">
                         <!--Zoom effect-->
-                        <a href="{{ route('p.iluminacion.show',$item->slug) }}" class="">
-                            <div class="view overlay zoom">
-                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid " style="width: 300px; height: 200px" alt="smaple image">
-                                <div class="mask caja flex-center" style="background-color: rgba(5, 139, 140,0.7)">
+                        <a href="{{ route('p.iluminacion.show',['category' =>$item->family->slug,'slug' => $item->slug]) }}" class="">
+                            <div class="view overlay zoom d-flex justify-content-center">
+                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid " style="  height: 200px" alt="smaple image">
+                                <div class="mask caja flex-center" style="background-color: rgba(0, 0, 0,0.4)">
                                     <p class="text-white" style="z-index: 11"><i class="fas fa-plus fa-2x"></i></p>
                                 </div>
                             </div>
-                            <h6 class="jolden-color font-weight-bold text-center my-3">{!! $item->text['es']['title'] ?? '' !!}</h6>
+                            <h6 class="multiled-color font-weight-bold text-center my-3">{!! $item->text['es']['title'] ?? '' !!}</h6>
                         </a>
                     </div>
                 @endforeach

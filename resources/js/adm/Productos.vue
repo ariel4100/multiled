@@ -108,12 +108,12 @@
                                         <!--<label class="custom-control-label" for="customCheck1">Novedades</label>-->
                                     <!--</div>-->
                                 <!--</div>-->
-                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
-                                    <!--<div class="custom-control custom-checkbox">-->
-                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck2">-->
-                                        <!--<label class="custom-control-label" for="customCheck2">Destacado</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
+                                <div class="md-form col-md-4 d-flex justify-content-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck2">
+                                        <label class="custom-control-label" for="customCheck2">Destacado</label>
+                                    </div>
+                                </div>
                                 <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
                                     <!--<div class="custom-control custom-checkbox">-->
                                         <!--<input type="checkbox" class="custom-control-input" v-model="item.new" id="customCheck3">-->
@@ -263,12 +263,12 @@
                                         <!--<label class="custom-control-label" for="customCheck12">Novedades</label>-->
                                     <!--</div>-->
                                 <!--</div>-->
-                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
-                                    <!--<div class="custom-control custom-checkbox">-->
-                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck22">-->
-                                        <!--<label class="custom-control-label" for="customCheck22">Destacado</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
+                                <div class="md-form col-md-4 d-flex justify-content-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck22">
+                                        <label class="custom-control-label" for="customCheck22">Destacado</label>
+                                    </div>
+                                </div>
                                 <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
                                     <!--<div class="custom-control custom-checkbox">-->
                                         <!--<input type="checkbox" class="custom-control-input" v-model="item.new" id="customCheck32">-->
@@ -417,6 +417,11 @@
                 //     this.content.familia.text
                 // }
                 this.content.images = item.file ? item.file : [];
+
+
+                this.content.related = item.related ? item.related : [];
+
+                this.ficha = item.text.es.ficha ? item.text.es.ficha : '';
                 console.log(self.content);
                 // if (this.content.familia.text == null){
                 //     this.content.familia.text

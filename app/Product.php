@@ -24,4 +24,8 @@ class Product extends Model
     public function related() {
         return $this->belongsToMany('App\Product','related_products','product_id','related_id');
     }
+
+    public function service() {
+        return $this->belongsToMany('App\Service','product_services','product_id','service_id');
+    }
 }

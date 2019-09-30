@@ -112,12 +112,7 @@
                                         <!--<label class="custom-control-label" for="customCheck1">Novedades</label>-->
                                     <!--</div>-->
                                 <!--</div>-->
-                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
-                                    <!--<div class="custom-control custom-checkbox">-->
-                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck2">-->
-                                        <!--<label class="custom-control-label" for="customCheck2">Destacado</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
+
                                 <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
                                     <!--<div class="custom-control custom-checkbox">-->
                                         <!--<input type="checkbox" class="custom-control-input" v-model="item.new" id="customCheck3">-->
@@ -265,12 +260,21 @@
                                     </div>
                                     <!--<related :model.sync="content.related" :related="content.productos"></related>-->
                                 </div>
+
+
                                 <input-file-image
                                         class=" mt-5"
                                         :model.sync="ficha"
                                         id="input-file-ficha"
                                         label-text="Seleccione Ficha tecnica"
                                 ></input-file-image>
+
+                                <div class="md-form col-md-4 d-flex justify-content-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck222">
+                                        <label class="custom-control-label" for="customCheck222">Destacado</label>
+                                    </div>
+                                </div>
                                 <div class="col-md-12 mt-5">
                                     <a @click="addImageGallery()" class="btn btn-info btn-md">Añadir Galeria</a>
                                     <div class="row">
@@ -405,11 +409,12 @@
         methods: {
             getData(){
                 axios.get(this.urlData).then(res => {
-                    // console.log(res)
+                    console.log(res)
                     this.content.productos = res.data.productos;
                     this.content.subfamilias = res.data.subfamilias;
                     this.content.familias = res.data.familias;
                     this.content.services = res.data.servicios;
+                    // this.ficha = res.data.servicios;
                     //
                     if (res.data.idioma){
                         this.content.lang = res.data.idioma
@@ -454,10 +459,10 @@
                         }
                     })
                 }
-                if (self.content.video) {
-                    Object.keys(self.content.video).forEach(function(key){
+                if (self.content.videos) {
+                    Object.keys(self.content.videos).forEach(function(key){
 
-                        let file = self.content.video[key]
+                        let file = self.content.videos[key]
                         if (file && file instanceof File) {
                             self.formData.append('video['+key+']', file);
                         }
@@ -472,6 +477,7 @@
                     })
                 }
                 self.formData.append('data', JSON.stringify(self.content));
+                self.formData.append('ficha', self.ficha);
                 self.formData.append('seccion', 'vial');
                 // console.log(form)
                 axios.post(this.urlAdd,self.formData).then(res => {
@@ -487,7 +493,13 @@
                 //     this.content.familia.text
                 // }
                 this.content.images = item.file ? item.file : [];
-                console.log(self.content);
+                this.content.images_gallery = item.slider ? item.slider : [];
+                this.content.videos = item.video ? item.video : [];
+                this.content.related = item.related ? item.related : [];
+                this.content.services_related = item.service ? item.service : [];
+                this.ficha = item.text.es.ficha ? item.text.es.ficha : '';
+
+                console.log(item);
                 // if (this.content.familia.text == null){
                 //     this.content.familia.text
                 // }

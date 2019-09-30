@@ -14,4 +14,9 @@ class Service extends Model
     protected $fillable = [
         'slug', 'text','order','file'
     ];
+
+
+    public function product() {
+        return $this->belongsToMany('App\Product','product_services');
+    }
 }

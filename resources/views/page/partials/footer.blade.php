@@ -77,16 +77,26 @@
 
             <div class="col-md-3 mb-md-0 mt-4">
                 <h5 class="text-uppercase wolf-color font-weight-bold text-dark">NEWSLETTER</h5>
-                 <div class="">
-                     <h6 class="font-weight-bold">Manténgase informado de todas nuestras nuevas colecciones, noticias y eventos especiales a través de nuestro newsletter</h6>
-                     <div class="md-form input-group mb-3">
-                         <input type="text" class="form-control" placeholder="Ingresar Email" aria-describedby="MaterialButton-addon2">
-                         <div class="input-group-append">
-                             <button class="btn btn-md multiled-fondo rounded-pill text-white m-0 px-4 font-weight-bold" type="button" id="MaterialButton-addon2">ENVIAR</button>
-                         </div>
-                     </div>
+                 {{--<div class="">--}}
+                     {{--<h6 class="font-weight-bold">Manténgase informado de todas nuestras nuevas colecciones, noticias y eventos especiales a través de nuestro newsletter</h6>--}}
+                     {{--<div class="md-form input-group mb-3">--}}
+                         {{--<input type="text" class="form-control" placeholder="Ingresar Email" aria-describedby="MaterialButton-addon2">--}}
+                         {{--<div class="input-group-append">--}}
+                             {{--<button class="btn btn-md multiled-fondo rounded-pill text-white m-0 px-4 font-weight-bold" type="button" id="MaterialButton-addon2">ENVIAR</button>--}}
+                         {{--</div>--}}
+                     {{--</div>--}}
 
-                 </div>
+                 {{--</div>--}}
+                {{--<p class="text-uppercase font-weight-bold wolf-color">SUSCRIBITE A NUESTRAS NOVEDADES</p>--}}
+                <form action="{{ route('newsletter.store') }}" method="post">
+                    @csrf
+                    <div class="md-form input-group mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Ingresar Email" aria-describedby="MaterialButton-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-md multiled-fondo rounded-pill text-white m-0 px-4 font-weight-bold" type="submit" id="MaterialButton-addon2">ENVIAR</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- Grid row -->

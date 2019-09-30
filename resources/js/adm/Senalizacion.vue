@@ -112,12 +112,12 @@
                                         <!--<label class="custom-control-label" for="customCheck1">Novedades</label>-->
                                     <!--</div>-->
                                 <!--</div>-->
-                                <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
-                                    <!--<div class="custom-control custom-checkbox">-->
-                                        <!--<input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck2">-->
-                                        <!--<label class="custom-control-label" for="customCheck2">Destacado</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
+                                <div class="md-form col-md-4 d-flex justify-content-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck2">
+                                        <label class="custom-control-label" for="customCheck2">Destacado</label>
+                                    </div>
+                                </div>
                                 <!--<div class="md-form col-md-4 d-flex justify-content-center">-->
                                     <!--<div class="custom-control custom-checkbox">-->
                                         <!--<input type="checkbox" class="custom-control-input" v-model="item.new" id="customCheck3">-->
@@ -263,7 +263,15 @@
                                         </multiselect>
 
                                     </div>
+
                                     <!--<related :model.sync="content.related" :related="content.iluminacion"></related>-->
+                                </div>
+
+                                <div class="md-form col-md-4 d-flex justify-content-center">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" v-model="item.featured" id="customCheck2s">
+                                        <label class="custom-control-label" for="customCheck2s">Destacado</label>
+                                    </div>
                                 </div>
                                 <input-file-image
                                         class=" mt-5"
@@ -454,10 +462,10 @@
                         }
                     })
                 }
-                if (self.content.video) {
-                    Object.keys(self.content.video).forEach(function(key){
+                if (self.content.videos) {
+                    Object.keys(self.content.videos).forEach(function(key){
 
-                        let file = self.content.video[key]
+                        let file = self.content.videos[key]
                         if (file && file instanceof File) {
                             self.formData.append('video['+key+']', file);
                         }
@@ -472,6 +480,7 @@
                     })
                 }
                 self.formData.append('data', JSON.stringify(self.content));
+                self.formData.append('ficha', self.ficha);
                 self.formData.append('seccion', 'senalizacion');
                 // console.log(form)
                 axios.post(this.urlAdd,self.formData).then(res => {
@@ -487,6 +496,11 @@
                 //     this.content.familia.text
                 // }
                 this.content.images = item.file ? item.file : [];
+                this.content.images_gallery = item.slider ? item.slider : [];
+                this.content.videos = item.video ? item.video : [];
+                this.content.related = item.related ? item.related : [];
+                this.content.services_related = item.service ? item.service : [];
+                this.ficha = item.text.es.ficha ? item.text.es.ficha : '';
                 console.log(self.content);
                 // if (this.content.familia.text == null){
                 //     this.content.familia.text

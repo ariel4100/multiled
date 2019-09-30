@@ -67,12 +67,34 @@
                 <div class="col-md-6 mb-5">
                     <img onerror="this.src='{{ asset('uploads/no-img.png')}}'" src="{{asset($producto->file[0]['image'])}}" alt="" class="img-fluid">
                 </div>
-                <div class="col-md-8 offset-2 d-flex justify-content-around  mb-5">
+                <div class="col-md-8 offset-md-2 d-flex justify-content-around  mb-5">
                     @if(isset($text['ficha']))
-                    <a href="" class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Ficha técnica</a>
+                    <a href="{{ asset($text['ficha']) }}" download class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Ficha técnica</a>
                     @endif
                     <a href="{{ route('contacto') }}" class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Consultar</a>
                 </div>
+{{--                    @dd($producto->text['es'])--}}
+                    @if(count($producto->service) > 0)
+                        <div class="col-md-12 mb-5">
+                            {{--<p class="p-2 multiled-color border-bottom" style="background-color: #F9F9F9">--}}
+                                {{--Productos relacionados--}}
+                            {{--</p>--}}
+                            {{--                    @dd()--}}
+                            <div class="row">
+                                @foreach($producto->service as $item)
+                                    <div class="col-md-3 mb-4">
+
+                                            <div class="d-flex justify-content-center" >
+                                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid"   alt="smaple image">
+
+                                            </div>
+                                            <h6 style="color: #595959;" class="font-weight-bold text-center my-3">{!! $item->text['es']['title'] ?? '' !!}</h6>
+
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 @if(isset($text['aplicaciones']))
                 <div class="col-md-6 mb-5">
                     <p class="p-2 multiled-color" style="background-color: #F9F9F9">
@@ -94,9 +116,22 @@
                     <p class="p-2 multiled-color" style="background-color: #F9F9F9">
                         Videos
                     </p>
-
+                    <div class="row">
+                        @foreach($producto->video as $item)
+                            <div class="col-md-6 mt-4">
+                                <div class=" " >
+                                    <video class="img-fluid" controls>
+                                        <source src="{{ asset($item['video']) }}" type="video/mp4">
+                                        {{--<source src="movie.ogg" type="video/ogg">--}}
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
                 @endif
+
                 @if(count($producto->related) > 0)
                 <div class="col-md-12 mb-5">
                     <p class="p-2 multiled-color border-bottom" style="background-color: #F9F9F9">

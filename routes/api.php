@@ -41,11 +41,7 @@ Route::get('familias-data', 'Adm\FamilyController@data')->name('family.data');
 Route::post('familias-store', 'Adm\FamilyController@store')->name('family.store');
 Route::post('familias-update', 'Adm\FamilyController@update')->name('family.update');
 Route::post('familias-destroy', 'Adm\FamilyController@destroy')->name('family.destroy');
-//SUBFAMILIAS
-Route::get('subfamilias-data', 'Adm\SubfamilyController@data')->name('subfamily.data');
-Route::post('subfamilias-store', 'Adm\SubfamilyController@store')->name('subfamily.store');
-Route::post('subfamilias-update', 'Adm\SubfamilyController@update')->name('subfamily.update');
-Route::post('subfamilias-destroy', 'Adm\SubfamilyController@destroy')->name('subfamily.destroy');
+
 //PRODUCTOS
 Route::get('iluminacion-data/{section}', 'Adm\ProductController@data')->name('product.data');
 Route::post('iluminacion-store', 'Adm\ProductController@store')->name('product.store');
@@ -72,6 +68,13 @@ Route::get('servicios-data', 'Adm\ServiceController@data')->name('service.data')
 Route::post('servicios-store', 'Adm\ServiceController@store')->name('service.store');
 Route::post('servicios-update', 'Adm\ServiceController@update')->name('service.update');
 Route::post('servicios-destroy', 'Adm\ServiceController@destroy')->name('service.destroy');
+
+//CARACTERISTICAS
+Route::get('caract-data', 'Adm\CaracteristicasController@data')->name('caract.data');
+Route::post('caract-store', 'Adm\CaracteristicasController@store')->name('caract.store');
+Route::post('caract-update', 'Adm\CaracteristicasController@update')->name('caract.update');
+Route::post('caract-destroy', 'Adm\CaracteristicasController@destroy')->name('caract.destroy');
+
 //USUARIOS
 Route::get('usuarios-data', 'Adm\UserController@data')->name('user.data');
 Route::post('usuarios-store', 'Adm\UserController@store')->name('user.store');

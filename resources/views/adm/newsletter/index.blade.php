@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table">
-                    <thead>
+                    <thead class="bg-dark text-white">
                     <tr>
-                        <th scope="col">Email</th>
+                        <th scope="col">Emails</th>
                         {{--<th scope="col">Rubro</th>--}}
 
                     </tr>

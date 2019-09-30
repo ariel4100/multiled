@@ -23,24 +23,48 @@
 
 
         <div class="row my-5">
-            @forelse($resultado as $item)
-                {{--@dd($item->file['imagenes'])--}}
-                <div class="col-md-3 col-sm-6  mb-5">
-                    <a href="{{ route('productos',$item->slug) }}" class="">
-                        <div class="">
-                            <div class="text-center " >
-                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" class="img-fluid w-100" src="{{ asset($item->file['imagenes'][0]['image'] ?? '') }}"  style=" height: 250px">
-                            </div>
-                            <div class=" d-flex justify-content-center align-items-center border" style="height: 100px;">
-                                <div class="text-center">
-                                    <h5 class="font-weight-bold multiled-color">
-                                        {!! $item->title ?? $item->text['es']['title'] !!}
-                                    </h5>
+            @forelse($resultado ?? [] as $item)
+                <div class="col-md-3 mb-5">
+                    <!--Zoom effect-->
+
+                    @switch($item->section)
+                        @case('senalizacion')
+                        <a href="{{ route('p.senalizacion.show',$item->slug) }}" class="">
+                            <div class="view overlay zoom d-flex justify-content-center align-items-center">
+                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid  " style="  height: 250px" alt="smaple image">
+                                <div class="mask caja flex-center" style="background-color: rgba(0, 0, 0,0.7)">
+                                    <p class="text-white" style="z-index: 11"><i class="fas fa-plus fa-2x"></i></p>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                            <h6 class="multiled-color font-weight-bold text-center my-3">{!! $item->text['es']['title'] ?? '' !!}</h6>
+                        </a>
+                        @break
+
+                        @case('vial')
+                        <a href="{{ route('p.vial.show',$item->slug) }}" class="">
+                            <div class="view overlay zoom d-flex justify-content-center align-items-center">
+                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid  " style="  height: 250px" alt="smaple image">
+                                <div class="mask caja flex-center" style="background-color: rgba(0, 0, 0,0.7)">
+                                    <p class="text-white" style="z-index: 11"><i class="fas fa-plus fa-2x"></i></p>
+                                </div>
+                            </div>
+                            <h6 class="multiled-color font-weight-bold text-center my-3">{!! $item->text['es']['title'] ?? '' !!}</h6>
+                        </a>
+                        @break
+
+                        @default
+                        <a href="{{ route('p.iluminacion.show',['category' =>$item->family->slug,'slug' => $item->slug]) }}" class="">
+                            <div class="view overlay zoom d-flex justify-content-center align-items-center">
+                                <img onError="this.src='{{ asset('uploads/no-img.png')}}'" src="{{ asset($item->file[0]['image'] ?? 'uploads/no-img.png') }}" class="img-fluid  " style="  height: 250px" alt="smaple image">
+                                <div class="mask caja flex-center" style="background-color: rgba(0, 0, 0,0.7)">
+                                    <p class="text-white" style="z-index: 11"><i class="fas fa-plus fa-2x"></i></p>
+                                </div>
+                            </div>
+                            <h6 class="multiled-color font-weight-bold text-center my-3">{!! $item->text['es']['title'] ?? '' !!}</h6>
+                        </a>
+                    @endswitch
                 </div>
+
             @empty
                 <div class="col">
                     <h4>No se encontraron resultados</h4>

@@ -25,6 +25,8 @@ class ProductController extends Controller
 //        $subfamilias = Subfamily::on(env($site))->orderBy('order')->get();
         $familias = Family::orderBy('order')->get();
         $productos = Product::with('family')
+            ->with('related')
+            ->with('service')
             ->where('section',$section)
             ->orderBy('order')->get();
         $servicios = Service::orderBy('order')->get();
@@ -42,16 +44,37 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data);
+        $servicios = collect($data->services_related);
+        $servicios->pluck('id');
         $related = collect($data->related);
         $related->pluck('id');
+        $ficha = $request->ficha;
 //        dd($related->pluck('id'));
 //        return $request->all();
         $categoria = Product::find($data->producto->id ?? '');
 //        return $cliente;
+
         if (!$categoria){
 //            dd($data->lang);
             $categoria = new Product();
 //            $categoria->setConnection(env($site));
+            if($request->video != null){
+                foreach ($request->video as $key => $value) {
+                    if(is_string($value['video'])) {
+                        $video[$key]['video'] = $value['video'];
+//                        $video[$key]['title'] = $value['title'];
+                    } else {
+//                    dd($value['image']);
+                        $path = $value['video']->store('uploads/productos/video');
+                        $video[$key]['video'] = $path;
+//                        $video[$key]['title'] = $value['title'];
+                    }
+
+                }
+                $categoria->video = $video;
+            }else{
+                $categoria->video = [];
+            }
             if($request->images != null){
                 foreach ($request->images as $key => $value) {
                     if(is_string($value['image'])) {
@@ -67,6 +90,8 @@ class ProductController extends Controller
 
                 }
                 $categoria->file = $images;
+            }else{
+                $categoria->file = [];
             }
             if($request->gallery != null){
                 foreach ($request->gallery as $key => $value) {
@@ -83,6 +108,19 @@ class ProductController extends Controller
 
                 }
                 $categoria->slider = $gallery;
+            }else{
+                $categoria->slider = [];
+            }
+
+            if($ficha != null){
+                if(is_string($ficha)) {
+//                    return $value;
+                    $path = $ficha ?? '';
+                } else {
+//                    dd($value);
+                    $path = $ficha->store('uploads/productos/ficha');
+                }
+                $data->lang->es->ficha = $path;
             }
 
             $categoria->text = $data->lang  ?? null;
@@ -96,7 +134,27 @@ class ProductController extends Controller
             $categoria->save();
 
             $categoria->related()->sync($related->pluck('id'));
-            return response()->json('guaradado');
+            $categoria->service()->sync($servicios->pluck('id'));
+            return response()->json('producto cargado');
+        }
+
+
+        if($request->video != null){
+            foreach ($request->video as $key => $value) {
+                if(is_string($value['video'])) {
+                    $video[$key]['video'] = $value['video'];
+//                        $video[$key]['title'] = $value['title'];
+                } else {
+//                    dd($value['image']);
+                    $path = $value['video']->store('uploads/productos/video');
+                    $video[$key]['video'] = $path;
+//                        $video[$key]['title'] = $value['title'];
+                }
+
+            }
+            $categoria->video = $video;
+        }else{
+            $categoria->video = [];
         }
 
         if($request->images != null){
@@ -114,6 +172,8 @@ class ProductController extends Controller
 
             }
             $categoria->file = $images;
+        }else{
+            $categoria->file = [];
         }
 
         if($request->gallery != null){
@@ -131,6 +191,19 @@ class ProductController extends Controller
 
             }
             $categoria->slider = $gallery;
+        }else{
+            $categoria->slider = [];
+        }
+
+        if($ficha != null){
+            if(is_string($ficha)) {
+//                    return $value;
+                $path = $ficha ?? '';
+            } else {
+//                    dd($value);
+                $path = $ficha->store('uploads/productos/ficha');
+            }
+            $data->producto->text->es->ficha = $path;
         }
 
 
@@ -143,8 +216,9 @@ class ProductController extends Controller
         $categoria->slug = Str::slug( $data->producto->text->es->title ?? null);
         $categoria->save();
         $categoria->related()->sync($related->pluck('id'));
-//        return $categoria;
-        return response()->json('guaradado');
+        $categoria->service()->sync($servicios->pluck('id'));
+        return $categoria;
+        return response()->json('producto actualizado');
 //        dd($site);
 
 //        $categoria->text = $request->lang;

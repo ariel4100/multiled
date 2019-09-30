@@ -84,7 +84,7 @@
     <div class="d-flex justify-content-center" style="position: fixed; width: auto;  bottom: 1px; z-index: 11; background: #4DC95C;color: #fff; margin: 0 5px; right: 0; border-radius: 50rem">
         <div class=" m-0 p-1 pl-3 pr-2 d-flex justify-content-center align-items-center" style="border-right: 2px solid white"><i class="fab fa-lg fa-whatsapp"></i></div>
         {{--<div class="p-0 pr-4" style="border-right: 2px solid red"></div>--}}
-        <a href="https://wa.me/{{ $whatsapp['numero'] }}" target="_blank" class="btn m-0 p-1 pr-4 pl-3 font-weight-bold" style="font-size: 18px">{{ $whatsapp['numero'] }}</a>
+        <a href="https://wa.me/{{ $whatsapp['numero'] ?? '' }}" target="_blank" class="btn m-0 p-1 pr-4 pl-3 font-weight-bold" style="font-size: 18px">{{ $whatsapp['numero'] }}</a>
     </div>
 
     <!-- JQuery -->

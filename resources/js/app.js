@@ -33,6 +33,8 @@ Vue.component('categoria', require('./adm/Categoria.vue').default);
 Vue.component('novedades', require('./adm/Novedades.vue').default);
 Vue.component('familia', require('./adm/Familia.vue').default);
 Vue.component('productos', require('./adm/Productos.vue').default);
+Vue.component('caracteristicas', require('./adm/Caracteristicas.vue').default);
+
 
 //PRODUCTOS
 Vue.component('senalizacion', require('./adm/Senalizacion.vue').default);

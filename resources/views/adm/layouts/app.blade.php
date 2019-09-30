@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>ADM::MULTILED</title>
 
     <!-- Scripts -->
     {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
@@ -141,6 +141,12 @@
                 <a href="{{ route('contenido.index',['section' => 'vial']) }}" class="nav-link">
                     <i class="fas fa-fw fa-chart-area"></i>
                     Vial
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'caracteristicas']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Caracteristicas
                 </a>
             </li>
             <li class="nav-item">

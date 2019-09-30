@@ -26,10 +26,10 @@
                         {{--</span>--}}
                         {{--</div>--}}
                         {{--<div class="col-md-6 d-flex align-items-center justify-content-end">--}}
-                        <a href="{{ route('empresa') }}" class=" nav-link font-weight-bold" >
+                        <a href="{{ route('empresa') }}" class=" d-none d-md-block nav-link font-weight-bold" >
                             NOSOTROS
                         </a>
-                        <a href="{{ route('proyectos') }}" class=" nav-link font-weight-bold" >
+                        <a href="{{ route('proyectos') }}" class=" d-none d-md-block nav-link font-weight-bold" >
                             PROYECTOS
                         </a>
                         {{--@if(!auth()->guard('client')->check())--}}
@@ -66,12 +66,14 @@
                                 {{--<a href="{{ url('jolden.private.logout') }}" class="font-weight-bold text-dark"> | SALIR</a>--}}
                             {{--</span>--}}
                         {{--@endif--}}
-                        <span class="d-flex align-items-center justify-content-end ml-2 pr-2">
+                        <div class="d-none d-md-block">
+                        <span class="d-flex align-items-center justify-content-end ml-2 pr-2 ">
                          <i class="fas fa-phone-volume mr-2 fa-lg multiled-color"></i>
                             <a href="tel:{{ $contacto['phones'][0]['numero'] ?? '' }}" class="multiled-color font-weight-bold ">
                             Atención al cliente <br><h5><b class="font-weight-bold">{{ $contacto['phones'][0]['numero'] }}</b></h5>
                             </a>
                         </span>
+                        </div>
                         <a href="{{ $redes[0]['link'] ?? '' }}" target="_blank" class="px-2"><i style="padding: 0.5rem 0.7rem " class="fab fa-facebook-f  stylish-color text-white rounded-pill"></i></a>
                         <a href="{{ $redes[1]['link'] ?? '' }}" target="_blank" class="px-2"><i style=" " class="fab fa-twitter  p-2 stylish-color text-white rounded-pill"></i></a>
                         <a href="{{ $redes[2]['link'] ?? '' }}" target="_blank" class="pl-2"><i style=" " class="fab fa-instagram  p-2 stylish-color text-white rounded-pill"></i></a>
@@ -137,7 +139,9 @@
                             </a>
 
                     @else
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('novedades') ? 'activo' : '' }} " href="{{ route('novedades') }}">NEWS</a></li>
+                        <li class="nav-item "><a class="nav-link mx-2 font-weight-bold  {{ request()->is('novedades') ? 'activo' : '' }} " href="{{ route('novedades') }}">NEWS</a></li>
+                        <li class="nav-item d-md-none d-sm-block"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('nosotros') ? 'activo' : '' }} " href="{{ route('empresa') }}">NOSOTROS</a></li>
+                        <li class="nav-item d-md-none d-sm-block"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('proyectos') ? 'activo' : '' }} " href="{{ route('proyectos') }}">PROYECTOS</a></li>
                         {{--@foreach($familias as $item)--}}
                             {{--<li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('presupuesto') ? 'activo' : '' }} " href="{{ route('familia',$item->slug) }}">{{ $item->text['es']['title'] ?? '' }}</a></li>--}}
                         {{--@endforeach--}}
