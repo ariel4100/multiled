@@ -22,6 +22,24 @@
     </style>
 @endpush
 @section('content')
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+        <div class="carousel-inner " style="height: 300px">
+            <div class="carousel-item active">
+                <img src="{{ asset($slider->file[0]['image'] ?? '') }}" class="d-block w-100" alt="...">
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    {{--@dd($slider->file[0]['image'])--}}
+{{--    <img src="{{ asset($slider->file[0]['image'] ?? '') }}" alt="" style="height: 300px" class="img-fluid w-100">--}}
 <div class="container my-5">
     {{--@include('page.partials.breadcrumb')--}}
     <nav class="d-block">

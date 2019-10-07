@@ -44,6 +44,14 @@ Route::group(['prefix' => 'vial'],function (){
 //    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
 });
 
+//PUBLICIDAD
+Route::group(['prefix' => 'publicidad'],function (){
+//    Route::get('/', 'FrontendController@familias')->name('familias');
+    Route::get('/', 'FrontendController@productos_publicidad')->name('p.publicidad');
+    Route::get('/{slug}', 'FrontendController@publicidad')->name('p.publicidad.show');
+//    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
+});
+
 //SEÑALIZACION
 Route::group(['prefix' => 'señalización'],function (){
 //    Route::get('/', 'FrontendController@familias')->name('familias');
@@ -51,6 +59,15 @@ Route::group(['prefix' => 'señalización'],function (){
     Route::get('/{slug}', 'FrontendController@senalizacion')->name('p.senalizacion.show');
 //    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
 });
+
+//PANTALLAS
+Route::group(['prefix' => 'pantallas-led'],function (){
+//    Route::get('/', 'FrontendController@familias')->name('familias');
+    Route::get('/', 'FrontendController@productos_pantallas')->name('p.pantallas');
+    Route::get('/{slug}', 'FrontendController@pantallas')->name('p.pantallas.show');
+//    Route::get('producto/{slug}', 'FrontendController@iluminacion')->name('iluminacion');
+});
+
 
 //PRODUCTOS
 Route::group(['prefix' => 'iluminacion'],function (){
@@ -74,7 +91,7 @@ Route::post('ficha','MailController@ficha_producto')->name('ficha.mail');
 Route::post('presupuesto-mail','MailController@presupuesto')->name('presupuesto.mail');
 /****FIN MAIL****/
 Route::get('buscador','FrontendController@buscador')->name('buscador');
-Route::group([ 'prefix' => 'adm'],function (){
+Route::group(['middleware' => 'auth', 'prefix' => 'adm'],function (){
     // CONTENIDO
     Route::get('/', function(){
         return view('adm.content.index');

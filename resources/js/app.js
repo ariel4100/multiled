@@ -37,7 +37,9 @@ Vue.component('caracteristicas', require('./adm/Caracteristicas.vue').default);
 
 
 //PRODUCTOS
+Vue.component('pantallas', require('./adm/Pantallas.vue').default);
 Vue.component('senalizacion', require('./adm/Senalizacion.vue').default);
+Vue.component('publicidad', require('./adm/Publicidad.vue').default);
 Vue.component('vial', require('./adm/Vial.vue').default);
 Vue.component('servicios', require('./adm/Servicios.vue').default);
 Vue.component('descargas', require('./adm/Descargas.vue').default);

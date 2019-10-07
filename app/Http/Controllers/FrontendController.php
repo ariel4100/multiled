@@ -56,6 +56,26 @@ class FrontendController extends Controller
         return view('page.proyectoshow',compact('proyecto','text'));
     }
 
+
+
+    public function productos_pantallas()
+    {
+        $senalizacion = Product::where('section','pantallas')->get();
+//        $slider =$contenido->slider;
+//        dd($slider);
+//        $text = $contenido->text['es'];
+        return view('page.pantallas.index',compact('senalizacion'));
+    }
+    public function pantallas($slug)
+    {
+        $senalizacion = Product::where('section','pantallas')->get();
+        $producto = Product::where('slug',$slug)->first();
+        $text = $producto->text['es'];
+        return view('page.pantallas.show',compact('producto','senalizacion','text'));
+    }
+
+
+
     public function productos_senalizacion()
     {
         $senalizacion = Product::where('section','senalizacion')->get();
@@ -72,13 +92,33 @@ class FrontendController extends Controller
         return view('page.senalizacion.show',compact('producto','senalizacion','text'));
     }
 
-    public function productos_vial()
+
+    public function productos_publicidad()
     {
-        $vial = Product::where('section','vial')->get();
+        $senalizacion = Product::where('section','publicidad')->get();
 //        $slider =$contenido->slider;
 //        dd($slider);
 //        $text = $contenido->text['es'];
-        return view('page.vial.index',compact('vial'));
+        return view('page.publicidad.index',compact('senalizacion'));
+    }
+    public function publicidad($slug)
+    {
+        $senalizacion = Product::where('section','publicidad')->get();
+        $producto = Product::where('slug',$slug)->first();
+        $text = $producto->text['es'];
+        return view('page.publicidad.show',compact('producto','senalizacion','text'));
+    }
+
+
+
+    public function productos_vial()
+    {
+        $vial = Product::where('section','vial')->get();
+        $slider = Content::where('section','vial-slider')->first();
+//        $slider =$contenido->slider;
+//        dd($slider);
+//        $text = $contenido->text['es'];
+        return view('page.vial.index',compact('vial','slider'));
     }
     public function vial($slug)
     {

@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <a @click="addImage()" class="btn btn-info btn-md">Añadir</a>
+                        <a @click="addImage()" class="btn btn-info btn-md">Añadir (1200 x 600)</a>
                         <div class="row">
                             <div class="col-md-4" v-for="(item,index) in content.images" :key="index">
                                 <input-file-image
@@ -129,9 +129,10 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <a @click="addImage()" class="btn btn-info btn-md">Añadir</a>
+                        <a @click="addImage()" class="btn btn-info btn-md">Añadir (1200 x 600)</a>
                         <div class="row">
-                            <div class="col-md-4" v-for="(item,index) in content.images" :key="index">
+                            <div class="col-md-4 position-relative" v-for="(item,index) in content.images" :key="index">
+                                <span @click="deleteImage(index)" class="badge badge-danger text-white rounded-circle position-absolute" style="top: -10px; right: 0; cursor: pointer; z-index: 11">X</span>
                                 <input-file-image
                                         class=" "
                                         :model.sync="item.image"
@@ -282,6 +283,10 @@
                     title:'',
                 })
             },
+            deleteImage(index) {
+                this.content.images.splice(index, 1);
+            },
+
 
         },
     }

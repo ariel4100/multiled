@@ -113,6 +113,12 @@
                 {{--</div>--}}
             {{--</li>--}}
             <li class="nav-item">
+                <a href="{{ route('contenido.index',['section' => 'pantallas']) }}" class="nav-link">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    Pantallas led
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('contenido.index',['section' => 'senalizacion']) }}" class="nav-link">
                     <i class="fas fa-fw fa-chart-area"></i>
                     Señalización
@@ -138,11 +144,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('contenido.index',['section' => 'vial']) }}" class="nav-link">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vial" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
                     Vial
                 </a>
+                <div id="vial" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'vial' ]) }}">Vial</a>
+                        <a class="collapse-item" href="{{ route('contenido.index',['section' => 'vial-slider' ]) }}">Slider</a>
+                        {{--<a class="collapse-item" href="{{ route('contenido.index',['section' => 'servicios' ]) }}">Caracteristicas</a>--}}
+                    </div>
+                </div>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('contenido.index',['section' => 'caracteristicas']) }}" class="nav-link">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -201,7 +215,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('contenido.index',['section' => 'contacto']) }}" class="nav-link">
+                <a href="{{ route('contenido.index',['section' => 'usuarios']) }}" class="nav-link">
                     <i class="fas fa-fw fa-chart-area"></i>
                     Usuarios
                 </a>

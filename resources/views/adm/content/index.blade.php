@@ -61,6 +61,35 @@
 
         @endif
 
+
+        @if($section == 'publicidad')
+            <section class="card shadow">
+                <div class="card-body">
+                    <publicidad
+                            url-data="{{ route('product.data',['section'=>$section]) }}"
+                            url-add="{{ route('product.store') }}"
+                            url-update="{{ route('product.update') }}"
+                            url-destroy="{{ route('product.destroy') }}"
+                    ></publicidad>
+                </div>
+            </section>
+
+        @endif
+
+        @if($section == 'pantallas')
+            <section class="card shadow">
+                <div class="card-body">
+                    <pantallas
+                            url-data="{{ route('product.data',['section'=>$section]) }}"
+                            url-add="{{ route('product.store') }}"
+                            url-update="{{ route('product.update') }}"
+                            url-destroy="{{ route('product.destroy') }}"
+                    ></pantallas>
+                </div>
+            </section>
+
+        @endif
+
         @if($section == 'senalizacion')
             <section class="card shadow">
                 <div class="card-body">
@@ -84,6 +113,18 @@
                             url-update="{{ route('product.update') }}"
                             url-destroy="{{ route('product.destroy') }}"
                     ></vial>
+                </div>
+            </section>
+
+        @endif
+
+        @if($section == 'vial-slider')
+            <section class="card shadow">
+                <div class="card-body">
+                    <datos
+                            url-data="{{ route('content.data',['section' => $section]) }}"
+                            url-action="{{ route('content.update', ['id' => $contenido->id]) }}"
+                    ></datos>
                 </div>
             </section>
 
@@ -234,10 +275,10 @@
 
         @if($section == 'usuarios')
             <usuario
-                    url-data="{{ route('user.data',['site' => $site]) }}"
-                    url-add="{{ route('user.store', ['site' => $site]) }}"
-                    url-update="{{ route('user.update', ['site' => $site]) }}"
-                    url-destroy="{{ route('user.destroy', ['site' => $site]) }}"
+                    url-data="{{ route('user.data') }}"
+                    url-add="{{ route('user.store') }}"
+                    url-update="{{ route('user.update') }}"
+                    url-destroy="{{ route('user.destroy') }}"
             ></usuario>
         @endif
     </div>

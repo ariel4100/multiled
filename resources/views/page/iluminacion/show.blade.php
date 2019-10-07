@@ -30,7 +30,7 @@
         <div class="col-md-9">
 {{--            @dd($producto)--}}
             <div class="row mb-5">
-                <div class="col-md-6">
+                <div class="col-md-6 text-center">
                     @gallery()
                     @slot('gallery',$producto->file ?? '')
                     @slot('id',3)
@@ -42,7 +42,7 @@
                      {!! $text['text'] ?? '' !!}
                     <div class=" d-flex  mt-3">
                         {{--<a href="" class="btn px-4 jolden-fondo text-white font-weight-bold rounded-pill">FICHA PDF</a>--}}
-                        <a href="{{ route('contacto') }}" class="btn px-4 multiled-fondo text-white font-weight-bold rounded-pill">CONSULTAR</a>
+                        <a href="{{ route('presupuesto') }}" class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Solicitar presupuesto</a>
                     </div>
                 </div>
             </div>

@@ -13,6 +13,9 @@
             left: 10%;
             text-align: left;
         }
+        .carousel-control-next, .carousel-control-prev{
+            width: 10%;
+        }
     /*.carousel-caption h2{*/
             /*text-shadow: 2px 1px #000;*/
             /*font-weight: bold;*/
@@ -48,6 +51,7 @@
             /*color: #fff;*/
 
         /*}*/
+
     </style>
 @endpush
 
@@ -69,7 +73,7 @@
                      alt="First slide">
                 {{--<div class="mask rgba-black-light"></div>--}}
             </div>
-            @if(isset($s['title']))
+            @if(isset($s['title']) && $s['title'] != 'null')
                 <div class="carousel-caption" >
                     <h1 class="h1-responsive" style="white-space: pre-line; font-size: 45px">{!! $s['title'] ?? '' !!}</h1>
                     <p style="white-space: pre-line">{!! $s['text'] ?? '' !!}</p>
@@ -93,6 +97,14 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+    {{--<a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">--}}
+        {{--<span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+        {{--<span class="sr-only">Previous</span>--}}
+    {{--</a>--}}
+    {{--<a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">--}}
+        {{--<span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+        {{--<span class="sr-only">Next</span>--}}
+    {{--</a>--}}
     <!--/.Controls-->
 </div>
 <!--/.Carousel Wrapper-->

@@ -28,6 +28,8 @@
         <ol class="list-unstyled d-flex">
             <li><i class="fas fa-home pr-1"></i>|</li>
             <li class="pl-1"><a href="{{ route('p.vial') }}" style="color: unset;" class="">Vial</a></li>
+            <li class="pl-1"> |</li>
+            <li class="pl-1"><a href=" " style="color: unset;" class="">{{ $text['title'] ?? '' }}</a></li>
         </ol>
     </nav>
     <div class="row my-5">
@@ -71,7 +73,7 @@
                     @if(isset($text['ficha']))
                     <a href="{{ asset($text['ficha']) }}" download class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Ficha técnica</a>
                     @endif
-                    <a href="{{ route('contacto') }}" class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Consultar</a>
+                    <a href="{{ route('presupuesto') }}" class="btn multiled-fondo text-white py-1" style="font-size: 16px;border-radius: 50rem">Solicitar presupuesto</a>
                 </div>
 {{--                    @dd($producto->text['es'])--}}
                     @if(count($producto->service) > 0)

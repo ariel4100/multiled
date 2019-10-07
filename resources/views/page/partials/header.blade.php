@@ -10,22 +10,14 @@
 <div class="fix ed-top bg-white">
     <nav class="navbar navbar-expand-lg d-flex flex-column navbar-dark p-0" >
         <div class="w-100" >
-            <div class="container p-0 pt-2">
+            <div class="container p-md-0 pt-2">
                 <div class="row">
-                    <div class="col-md-12 p-0 d-flex align-items-center justify-content-end">
+                    <div class="col-md-4">
+                        <a class="navbar-brand ml-3 d-md-block d-none" href="{{ url('/') }}"><img src="{{ asset($header ?? '') }}" alt="" class="img-fluid"></a>
 
-                        {{--<p class="m-0 text-white">Seguinos en</p>--}}
-                        {{--<a href="wp:{{ $contacto[0]['whatsaap'] ?? '' }}" class="pl-2 d-none d-md-block"><i class="fab fa-whatsapp   mr-2 fa-lg" style="color: #25D366"></i>{{ $contacto[0]['whatsaap'] ?? '' }}</a>--}}
-                        {{--<a href="{{ $contacto[0]['telefono'] ?? '' }}" class="pl-3 d-none d-md-block"><i class="fas fa-phone-volume wolf-color mr-2 fa-lg"></i><i class="fas fa-phone-alt"></i>{{ $contacto[0]['telefono'] ?? '' }}</a>--}}
-                        {{--<div class="mx-1 d-none d-md-block">/</div>--}}
-                        {{--<a href="{{ $contacto[0]['telefono1'] ?? '' }}" class=" d-none d-md-block">{{ $contacto[0]['telefono1'] ?? '' }}</a>--}}
+                    </div>
+                    <div class="col-md-8 p-md-0 d-flex align-items-center justify-content-end">
 
-                        {{--<span class="d-none d-sm-block border-left">--}}
-                        {{--<i class="far fa-envelope mx-2" style="color: #D33538;"></i>--}}
-                        {{--<a href="mailto:{{ $contacto->text['es']['correo'] ?? '' }}" class="text-white">{{ $contacto->text['es']['correo'] ?? '' }}</a>--}}
-                        {{--</span>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6 d-flex align-items-center justify-content-end">--}}
                         <a href="{{ route('empresa') }}" class=" d-none d-md-block nav-link font-weight-bold" >
                             NOSOTROS
                         </a>
@@ -100,7 +92,7 @@
                     @endif
                 {{--<a class="navbar-brand ml-3" href="{{ url('jolden.p.pedidos') }}"><img src="{{ asset($header ?? '') }}" alt="" class="img-fluid"></a>--}}
             @else
-                <a class="navbar-brand ml-3" href="{{ url('/') }}"><img src="{{ asset($header ?? '') }}" alt="" class="img-fluid"></a>
+                <a class="navbar-brand ml-3 d-md-none d-sm-block" href="{{ url('/') }}"><img src="{{ asset($header ?? '') }}" alt="" class="img-fluid"></a>
             @endif
 
             <button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -145,9 +137,10 @@
                         {{--@foreach($familias as $item)--}}
                             {{--<li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('presupuesto') ? 'activo' : '' }} " href="{{ route('familia',$item->slug) }}">{{ $item->text['es']['title'] ?? '' }}</a></li>--}}
                         {{--@endforeach--}}
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('pantallas-led*') ? 'activo' : '' }} " href="{{ route('p.pantallas') }}">PANTALLAS LED</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('señalización*') ? 'activo' : '' }} " href="{{ route('p.senalizacion') }}">SEÑALIZACIÓN</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('iluminación*') ? 'activo' : '' }} " href="{{ route('f.iluminacion') }}">ILUMINACIÓN</a></li>
-                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('novedades') ? 'activo' : '' }} " href="{{ route('p.senalizacion') }}">PUBLICIDAD</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('publicidad*') ? 'activo' : '' }} " href="{{ route('p.publicidad') }}">PUBLICIDAD</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('vial*') ? 'activo' : '' }} " href="{{ route('p.vial') }}">VIAL</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('presupuesto') ? 'activo' : '' }} " href="{{ route('presupuesto') }}">SOLICITAR PRESUPUESTO</a></li>
                         <li class="nav-item"><a class="nav-link mx-2 font-weight-bold  {{ request()->is('contacto') ? 'activo' : '' }} " href="{{ route('contacto') }}">CONTACTO</a></li>

@@ -94,19 +94,26 @@
                     </div>
                 </fieldset>
                 <a @click="addImage()" class="btn btn-info btn-md">Añadir</a>
-                <div class="row">
-                    <div class="col-md-3" v-for="(item,index) in content.images" :key="index">
-                    <input-file-image
-                            class=" "
-                            :model.sync="item.image"
-                            id="input-file-descarga"
-                            label-text="Seleccione Imagen"
-                    ></input-file-image>
-                        <div class="md-form">
-                            <input type="text" class="form-control" v-model="item.title" placeholder="Titulo">
+                <draggable v-model="content.images" class="row  " draggable=".item" @change="log">
+
+                        <div class="col-md-3 item" v-for="(item,index) in content.images" :key="index">
+                            <input-file-image
+                                    class=" "
+                                    :model.sync="item.image"
+                                    id="input-file-descarga"
+                                    label-text="Seleccione Imagen"
+                            ></input-file-image>
+                            <div class="md-form">
+                                <input type="text" class="form-control" v-model="item.title" placeholder="Titulo">
+                            </div>
+                            <div class="md-form">
+                                <input type="text" class="form-control" v-model="item.link" placeholder="Link">
+                            </div>
                         </div>
-                    </div>
-                </div>
+
+
+                </draggable>
+
                 <div class="row mt-5">
                     <div class="col-md-4 " v-for="(item,index) in content.lang " :key="index ">
                         <input-file-image
@@ -196,6 +203,8 @@
               this.content.images.push({
                   image:{},
                   title:'',
+                  link:'',
+
               })
             },
             save(){
@@ -221,6 +230,7 @@
                             console.log( file.image)
                             self.formData.append('images['+key+'][image]', file.image);
                             self.formData.append('images['+key+'][title]', file.title);
+                            self.formData.append('images['+key+'][link]', file.link);
                         }
                     })
                 }

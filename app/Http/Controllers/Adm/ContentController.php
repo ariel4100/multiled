@@ -90,6 +90,7 @@ class ContentController extends Controller
 //                    return dd($f);
                     $images[$key]['image'] = $value['image'] ?? '';
                     $images[$key]['title'] = $value['title'] ?? '';
+                    $images[$key]['link'] = $value['link'] ?? '';
                     $images[$key]['subtitle'] = $value['subtitle'] ?? '';
                     $images[$key]['text'] = $value['text'] ?? '';
                     $images[$key]['keyword'] = $value['keyword'] ?? '';
@@ -100,6 +101,7 @@ class ContentController extends Controller
                     $path = $value['image']->store('uploads/images');
                     $images[$key]['image'] = $path;
                     $images[$key]['title'] = $value['title'] ?? '';
+                    $images[$key]['link'] = $value['link'] ?? '';
                     $images[$key]['subtitle'] = $value['subtitle'] ?? '';
                     $images[$key]['text'] = $value['text'] ?? '';
                     $images[$key]['keyword'] = $value['keyword'] ?? '';

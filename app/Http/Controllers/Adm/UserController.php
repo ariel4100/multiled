@@ -10,9 +10,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class UserController extends Controller
 {
-    public function data($site)
+    public function data()
     {
-        $clientes = User::on(env($site))->get();
+        $clientes = User::get();
 //        $novedades = News::on(env($site))->orderBy('order')->get();
         $idioma = collect(LaravelLocalization::getSupportedLocales())->only(['es']);
 //        dd($idioma );
@@ -23,13 +23,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function store(Request $request,$site)
+    public function store(Request $request)
     {
-        $cliente = User::on(env($site))->find($request->id);
+        $cliente = User::find($request->id);
 //        return $cliente;
         if (!$cliente){
             $cliente = new User();
-            $cliente->setConnection(env($site));
+//            $cliente->setConnection(env($site));
         }
 
         $cliente->name = $request->name. ' '. $request->surname;
@@ -45,9 +45,9 @@ class UserController extends Controller
 
     }
 
-    public function destroy(Request $request, $site)
+    public function destroy(Request $request)
     {
-        User::on(env($site))->find($request->id)->delete();
+        User::find($request->id)->delete();
         return response()->json('guaradado');
     }
 }

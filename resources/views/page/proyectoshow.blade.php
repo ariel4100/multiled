@@ -24,7 +24,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8 ">
                 <div class=" text-center">
-                    <img src="{{ asset($proyecto->file[0]['image']) }}" alt="" class="img-fluid" >
+                    @php($slider = $proyecto->file)
+                    @include('page.partials.carousel')
+                    {{--@gallery--}}
+                    {{--@slot('gallery',$proyecto->file)--}}
+                    {{--@endgallery--}}
+{{--                    <img src="{{ asset($proyecto->file[0]['image']) }}" alt="" class="img-fluid" >--}}
                     <h2 class="my-3 text-center multiled-color font-weight-bold  px-4">{{ $text['title'] ?? '' }}</h2>
                     {!! $text['text'] ?? '' !!}
                 </div>

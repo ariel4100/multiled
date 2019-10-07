@@ -5,6 +5,27 @@
         /*h2 span{*/
         /*    color: #a9c47f !important;*/
         /*}*/
+        .position-absolute a{
+            color: #535353 ;
+
+        }
+        .position-absolute a:hover{
+            background-color: #173E8D  !important;
+            color: #fff !important;
+
+        }
+        .mask-proyect{
+            position: absolute;
+            background: black;
+            opacity: 0.2;
+            /* top: 0; */
+            /* left: 0; */
+            /* bottom: 0; */
+            /* right: 0; */
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
+            z-index: 1;
+        }
     </style>
 @endpush
 @section('content')
@@ -13,6 +34,19 @@
     <h5 class="text-center font-weight-bold mb-3">{{ $text['title'] ?? '' }}</h5>
      {!! $text['text'] ?? '' !!}
 </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            @foreach($contenido->file ?? [] as $item)
+                <div class="col-md-3 text-center mb-5">
+                    <a href="{{ url($item['link'] ?? '') }}" class="" style="color: unset">
+                        <img src="{{ asset($item['image']) }}" alt="" class="img-fluid">
+                        <h4 class="my-3 font-weight-bold">{{ $item['title'] ?? '' }}</h4>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             @foreach($destacados ?? [] as $item)
@@ -59,25 +93,17 @@
             @endforeach
         </div>
     </div>
-    {{--<div class="container">--}}
-        {{--<div class="row">--}}
-            {{--@foreach($contenido->file ?? [] as $item)--}}
-                {{--<div class="col-md-3 text-center mb-5">--}}
-                    {{--<img src="{{ asset($item['image']) }}" alt="" class="img-fluid">--}}
-                    {{--<h4 class="my-3 font-weight-bold">{{ $item['title'] ?? '' }}</h4>--}}
-                {{--</div>--}}
-            {{--@endforeach--}}
-        {{--</div>--}}
-    {{--</div>--}}
+
     <h1 class="text-center multiled-color mb-5 font-weight-bold">{{ $text['title_2'] ?? '' }}</h1>
     <div class="container-fluid">
         <div class="row justify-content-center">
             @foreach($proyectos ?? [] as $item)
                 {{--@dd($item)--}}
                 @if(isset($item->text['es']['featured']) == 1)
-                <div class="col-md-3 col-sm-12 p-lg-0 p-md-0 p-sm-0 mb-md-0 mb-sm-4 position-relative d-flex align-items-center justify-content-center">
-                    <img src="{{ asset($item->file[0]['image']) }}" alt="" class="img-fluid" >
-                    <div class="position-absolute">
+                <div class="col-md-3 col-sm-12 p-lg-0 p-md-0 p-sm-0 mb-md-0 mb-sm-4 position-relative d-flex align-items-center justify-content-center  " style="overflow: hidden">
+                    <img src="{{ asset($item->file[0]['image']) }}" alt="" class=" h-100 ">
+                    <div class="mask-proyect"></div>
+                    <div class="position-absolute" style="z-index: 2">
                         <h3 class="my-3 text-center text-white font-weight-bold  px-4">{{ $item->text['es']['title'] ?? '' }}</h3>
                         <div class="text-center">
                             <a href="{{ route('proyectos.show',$item->slug) }}" class="btn btn-white font-weight-bold multiled-color p-2 px-4" style="border-radius: 5rem">Ingresar</a>
