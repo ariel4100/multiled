@@ -100,7 +100,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse flex-md-column" id="navbarNav">
-                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
                     <!-- Features -->
 
                     {{--<li class="nav-item"><a class="nav-link ml-2 {{ request()->is('catalogos') ? 'activo' : '' }}" href="{{ url('jolden.iluminacion') }}">CATÁLOGO</a></li>--}}

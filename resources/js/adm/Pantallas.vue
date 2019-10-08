@@ -186,7 +186,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <a @click="save()" class="btn btn-primary">Guardar</a>
+                        <!--<a @click="save()" class="btn btn-primary">Guardar</a>-->
+                        <a  v-if="spin" @click="save()" class="btn btn-primary">Guardar</a>
+                        <a  v-else  class="btn btn-primary "> <i class="fas fa-circle-notch fa-spin p-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -342,7 +344,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <a @click="save()" class="btn btn-primary">Guardar</a>
+                        <!--<a @click="save()" class="btn btn-primary">Guardar</a>-->
+                        <a  v-if="spin" @click="save()" class="btn btn-primary">Guardar</a>
+                        <a  v-else  class="btn btn-primary "> <i class="fas fa-circle-notch fa-spin p-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -400,6 +404,7 @@
                     precision: 2,
                     masked: false /* doesn't work with directive */
                 },
+                spin: true,
                 formData: new FormData(),
                 ficha:'',
             }

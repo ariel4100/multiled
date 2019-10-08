@@ -186,7 +186,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <a @click="save()" class="btn btn-primary">Guardar</a>
+                        <!--<a @click="save()" class="btn btn-primary">Guardar</a>-->
+                        <a  v-if="spin" @click="save()" class="btn btn-primary">Guardar</a>
+                        <a  v-else  class="btn btn-primary "> <i class="fas fa-circle-notch fa-spin p-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -341,8 +343,11 @@
                         </fieldset>
                     </div>
                     <div class="modal-footer">
+
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <a @click="save()" class="btn btn-primary">Guardar</a>
+                        <!--<a @click="save()" class="btn btn-primary">Guardar</a>-->
+                        <a  v-if="spin" @click="save()" class="btn btn-primary">Guardar</a>
+                        <a  v-else  class="btn btn-primary "> <i class="fas fa-circle-notch fa-spin p-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -400,6 +405,7 @@
                     precision: 2,
                     masked: false /* doesn't work with directive */
                 },
+                spin: true,
                 formData: new FormData(),
                 ficha:'',
             }
@@ -425,6 +431,7 @@
                 });
             },
             save(){
+                this.spin = false
                 console.log(this.content)
                 // return false
                 var self = this
@@ -484,6 +491,7 @@
                 self.formData.append('seccion', 'senalizacion');
                 // console.log(form)
                 axios.post(this.urlAdd,self.formData).then(res => {
+                    this.spin = true
                     console.log(res)
                     toastr.success('Se creo correctamente')
                     this.getData()
