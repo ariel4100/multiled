@@ -29,6 +29,6 @@
         "v-money": "^0.8.1",
         "vue-multiselect": "^2.1.6",
         "vuedraggable": "^2.23.1",
-        "vuetify": "^2.0.18"
+        "vuetify": "^2.6.10"
     }
 }
